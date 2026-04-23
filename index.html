@@ -1,393 +1,605 @@
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fabio Everton | AI Governance Engineer</title>
-  <style>
-    :root {
-      --bg: #0d1117;
-      --card: #161b22;
-      --border: #30363d;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --accent: #58a6ff;
-      --accent-hover: #79c0ff;
-      --success: #3fb950;
-      --warning: #d29922;
-      --danger: #f85149;
-      --gradient: linear-gradient(135deg, #58a6ff, #bc8cff);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(88,166,255,0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 8px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .subtitle {
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 16px;
-    }
-    .tagline {
-      background: rgba(88,166,255,0.1);
-      border-left: 3px solid var(--accent);
-      padding: 12px 16px;
-      border-radius: 0 8px 8px 0;
-      margin: 20px 0;
-      font-style: italic;
-    }
-    .badges {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 20px 0;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-    .btn:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    .btn-primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #0d1117;
-    }
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-    .btn-success { background: var(--success); border-color: var(--success); color: #0d1117; }
-    .btn-whatsapp { background: #25D366; border-color: #25D366; color: #0d1117; }
-    
-    .contact-bar {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 20px 0;
-      padding: 16px;
-      background: var(--card);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-    
-    section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 20px;
-    }
-    h2 {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
-      margin-bottom: 16px;
-      color: var(--accent);
-      font-size: 1.4rem;
-    }
-    h3 { margin: 16px 0 8px; color: var(--text); }
-    
-    .project {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-    .project:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .project a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .project a:hover { text-decoration: underline; }
-    .features { list-style: none; padding-left: 0; }
-    .features li {
-      padding: 4px 0;
-      padding-left: 20px;
-      position: relative;
-    }
-    .features li::before {
-      content: '✅';
-      position: absolute;
-      left: 0;
-    }
-    
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .stack-item {
-      background: rgba(88,166,255,0.1);
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      text-align: center;
-      border: 1px solid var(--border);
-    }
-    
-    .roadmap-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-    .roadmap-table th, .roadmap-table td {
-      padding: 10px;
-      border: 1px solid var(--border);
-      text-align: left;
-    }
-    .roadmap-table th { background: rgba(88,166,255,0.1); }
-    .status { font-weight: 600; }
-    .in-progress { color: var(--success); }
-    .upcoming { color: var(--muted); }
-    
-    .highlight-box {
-      background: rgba(63,185,80,0.1);
-      border-left: 3px solid var(--success);
-      padding: 16px;
-      border-radius: 0 8px 8px 0;
-      margin: 16px 0;
-      font-family: monospace;
-      font-size: 0.95rem;
-    }
-    
-    .cert-list { list-style: none; }
-    .cert-list li {
-      padding: 6px 0;
-      padding-left: 24px;
-      position: relative;
-    }
-    .cert-list li::before {
-      content: '🎓';
-      position: absolute;
-      left: 0;
-    }
-    
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
-    }
-    
-    @media print {
-      body { background: #fff; color: #000; }
-      .btn, .contact-bar, footer { display: none; }
-      section { border: 1px solid #ccc; break-inside: avoid; }
-      a { color: #000; text-decoration: none; }
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 1.6rem; }
-      .btn { width: 100%; justify-content: center; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Fabio Everton · AI Governance Engineer · Resume</title>
+    <style>
+        /* ----- MODERN RESET + GLOBAL VARIABLES (enhanced visual, print-optimized) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Premium color system — professional, high contrast, accessible, print-friendly */
+        :root {
+            --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f8fafc;
+            --color-background-info: #eef2ff;
+            --color-text-primary: #0f172a;
+            --color-text-secondary: #334155;
+            --color-text-info: #1e40af;
+            --color-border-primary: #cbd5e1;
+            --color-border-secondary: #e2e8f0;
+            --color-border-info: #3b82f6;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+
+        /* print optimization — prevent any unwanted page breaks inside critical blocks */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+                font-size: 10.5pt;
+            }
+            .cv {
+                max-width: 100%;
+                padding: 0.8rem;
+                margin: 0 auto;
+            }
+            .job, .project, .section, .skills-grid, .tagline-box, .clients-list, .roadmap-bar {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .header-contacts, .section-title, .job-header, .project-header {
+                break-after: avoid;
+            }
+            .phase-pill {
+                background: #f1f5f9 !important;
+                border: 0.5px solid #cbd5e1 !important;
+            }
+            a {
+                text-decoration: none;
+                color: #0f172a !important;
+            }
+            .btn-group a {
+                border: 0.5px solid #cbd5e1;
+                background: #f8fafc;
+            }
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: #eef2f5;
+            padding: 2rem 1rem;
+            line-height: 1.4;
+        }
+
+        .cv {
+            max-width: 880px;
+            margin: 0 auto;
+            background: var(--color-background-primary);
+            border-radius: 20px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.02);
+            padding: 2.5rem 2rem;
+            transition: all 0.2s ease;
+        }
+
+        .header-name {
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: var(--color-text-primary);
+            margin-bottom: 6px;
+        }
+
+        .header-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            background: var(--color-background-secondary);
+            display: inline-block;
+            padding: 4px 12px 4px 0;
+            border-radius: 30px;
+            margin-bottom: 14px;
+            letter-spacing: 0.2px;
+        }
+
+        .header-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px 24px;
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            padding-bottom: 14px;
+            border-bottom: 1.5px solid var(--color-border-primary);
+            margin-bottom: 6px;
+        }
+
+        .header-contacts span, .header-contacts a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header-contacts a {
+            color: var(--color-text-info);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-contacts a:hover {
+            color: #0f2b6d;
+            text-decoration: underline;
+        }
+
+        /* action buttons row */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 18px 0 8px 0;
+            padding-bottom: 6px;
+            border-bottom: 0.5px solid var(--color-border-secondary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-background-secondary);
+            border: 1px solid var(--color-border-secondary);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn i { font-style: normal; font-weight: 500; }
+
+        .btn:hover {
+            background: #ffffff;
+            border-color: var(--color-border-info);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px -8px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary {
+            background: #0f172a;
+            border-color: #0f172a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e293b;
+            border-color: #1e293b;
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: #075e54;
+            border-color: #075e54;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #054a44;
+            border-color: #054a44;
+            color: white;
+        }
+
+        .section {
+            margin-top: 24px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--color-border-primary);
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+            color: var(--color-text-primary);
+        }
+
+        .summary-text {
+            font-size: 13.8px;
+            line-height: 1.68;
+            color: var(--color-text-primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px 28px;
+        }
+
+        .skill-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-bottom: 5px;
+            letter-spacing: 0.2px;
+        }
+
+        .skill-value {
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--color-text-primary);
+        }
+
+        .job {
+            margin-bottom: 22px;
+            break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .job-company {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .job-period {
+            font-size: 12.5px;
+            color: var(--color-text-secondary);
+            white-space: nowrap;
+        }
+
+        .job-role {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .job-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-bullets li {
+            font-size: 13px;
+            line-height: 1.6;
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 5px;
+            color: var(--color-text-primary);
+        }
+
+        .job-bullets li::before {
+            content: "▹";
+            position: absolute;
+            left: 2px;
+            color: var(--color-text-info);
+            font-size: 12px;
+        }
+
+        .project {
+            margin-bottom: 18px;
+            break-inside: avoid;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .project-name {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .project-status {
+            font-size: 11.5px;
+            background: #eef2ff;
+            padding: 2px 10px;
+            border-radius: 20px;
+            color: #1e40af;
+        }
+
+        .project-sub {
+            font-size: 12.5px;
+            color: var(--color-text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .edu-degree {
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+
+        .edu-date {
+            font-size: 12.5px;
+            color: var(--color-text-secondary);
+        }
+
+        .edu-institution {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .cert-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 13px;
+            margin-bottom: 8px;
+            align-items: baseline;
+        }
+
+        .cert-name {
+            font-weight: 600;
+        }
+
+        .cert-status {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+
+        .tagline-box {
+            background: var(--color-background-secondary);
+            border-left: 4px solid var(--color-border-info);
+            padding: 12px 16px;
+            border-radius: 0 12px 12px 0;
+            margin: 18px 0;
+            font-size: 13.5px;
+            font-style: normal;
+            font-weight: 450;
+            color: var(--color-text-primary);
+        }
+
+        .clients-list {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+            margin-top: 8px;
+            background: #fefce8;
+            padding: 8px 12px;
+            border-radius: 12px;
+        }
+
+        .roadmap-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .phase-pill {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 24px;
+            background: var(--color-background-secondary);
+            border: 0.5px solid var(--color-border-secondary);
+            color: var(--color-text-secondary);
+            transition: all 0.1s;
+        }
+
+        .phase-pill.active {
+            background: var(--color-background-info);
+            color: var(--color-text-info);
+            border-color: var(--color-border-info);
+            font-weight: 600;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+
+        @media (max-width: 640px) {
+            .cv {
+                padding: 1.5rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .btn {
+                padding: 6px 16px;
+                font-size: 12px;
+            }
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .job-period {
+                white-space: normal;
+            }
+        }
+    </style>
 </head>
 <body>
+<div class="cv">
+    <h2 class="sr-only">Fabio Everton Resume — AI Governance Engineer</h2>
 
-  <header>
-    <h1>Fabio Everton 🇧🇷</h1>
-    <div class="subtitle">AI Governance Engineer | LLM Agents | OPA/Rego | LGPD & PL 2338/2023</div>
+    <div class="header-name">Fabio Everton</div>
+    <div class="header-title">AI Governance Engineer &nbsp;·&nbsp; LLM Agents &nbsp;·&nbsp; Policy-as-Code &nbsp;·&nbsp; LGPD / Bill 2338/2023</div>
     
-    <div class="tagline">
-      🔐 I build AI systems that don't just work — they can be audited, explained, and defended in court.
+    <div class="header-contacts">
+        <span>📍 Brasília, DF — Brazil</span>
+        <span>📞 +55 61 99840-7681</span>
+        <a href="https://www.linkedin.com/in/fabio-everton-3b62b1129/" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
+        <a href="https://github.com/FABIOEVERTON" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
+        <span>🌍 Open to remote</span>
     </div>
-    
-    <div class="badges">
-      <span style="background:rgba(88,166,255,0.15); padding:4px 12px; border-radius:20px; font-size:0.85rem;">🛡️ AI Governance</span>
-      <span style="background:rgba(63,185,80,0.15); padding:4px 12px; border-radius:20px; font-size:0.85rem;">⚖️ Legal-Tech</span>
-      <span style="background:rgba(210,153,34,0.15); padding:4px 12px; border-radius:20px; font-size:0.85rem;">🤖 LLM Agents</span>
+
+    <div class="action-buttons">
+        <a href="https://www.linkedin.com/in/fabio-everton-3b62b1129/" target="_blank" rel="noopener noreferrer" class="btn">
+            <span>💼</span> LinkedIn Profile
+        </a>
+        <a href="https://github.com/FABIOEVERTON" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>📁</span> GitHub Repos
+        </a>
+        <a href="https://wa.me/5561998407681?text=Hello%20Fabio,%20I%20saw%20your%20AI%20Governance%20resume%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <span>📱</span> WhatsApp +55 61 99840-7681
+        </a>
     </div>
-  </header>
 
-  <div class="contact-bar">
-    <a href="https://www.linkedin.com/in/fabio-everton-3b62b1129/" target="_blank" class="btn btn-primary">
-      🔗 LinkedIn Profile
-    </a>
-    <a href="https://github.com/FABIOEVERTON?tab=repositories" target="_blank" class="btn">
-      💻 Public Repositories
-    </a>
-    <a href="https://wa.me/5561998407681" target="_blank" class="btn btn-whatsapp">
-      📱 WhatsApp
-    </a>
-    <button onclick="window.print()" class="btn btn-success">
-      📄 Save as PDF
-    </button>
-  </div>
-
-  <div style="text-align:center; margin:10px 0; color:var(--muted);">
-    📍 Brasília, Brazil · Open to remote · 📞 +55 61 99840-7681
-  </div>
-
-  <section>
-    <h2>🚀 Featured Projects</h2>
-    
-    <div class="project">
-      <h3>🛡️ <a href="https://github.com/FABIOEVERTON/Fellow_Governance" target="_blank">Fellow Governance</a></h3>
-      <p style="color:var(--muted); margin-bottom:10px;">
-        Transforma notificações de violação de IA (ANPD, NIST, EU AI Act) em <strong>evidência jurídica auditável + políticas Rego executáveis</strong> em &lt;300s.
-      </p>
-      <ul class="features">
-        <li>22 agentes especializados com orquestração determinística (SEK)</li>
-        <li>Motor OPA/Rego com cadeia de auditoria imutável (SHA-256)</li>
-        <li>Geração de ZIP forense: tese + evidências + políticas compiladas</li>
-        <li>Arquitetura multi-tenant com PostgreSQL RLS + pgvector</li>
-      </ul>
+    <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <p class="summary-text">
+            AI Governance Engineer building auditable, legally defensible AI systems — combining 16 years of high-stakes project delivery (R$30M+ in contracts, 60+ corporate offices), a background in financial compliance at Banco do Brasil, institutional regulatory navigation at Mercoplan, and formal legal training. Currently developing <strong>Fellow Governance</strong>, a SaaS platform that transforms AI violation notices into executable OPA/Rego policies and forensic evidence in under 300 seconds, alongside <strong>Ezra</strong>, a production-grade autonomous agent with immutable audit trails and LGPD compliance hooks.
+        </p>
+        <div class="tagline-box">
+            "If it cannot be audited, it cannot be deployed." — the principle that bridges construction engineering, financial compliance, and AI governance.
+        </div>
     </div>
-    
-    <div class="project">
-      <h3>🤖 <a href="https://github.com/FABIOEVERTON/Ezra_Agent" target="_blank">Ezra Agent</a></h3>
-      <p style="color:var(--muted); margin-bottom:10px;">
-        Agente autônomo no Telegram com <strong>governança production-grade desde o dia 1</strong>.
-      </p>
-      <ul class="features">
-        <li>Execução sandboxed com limites de syscall</li>
-        <li>Filtro de PII + bloqueio de prompt injection</li>
-        <li>Circuit breaker com fallback de modelo</li>
-        <li>Log de auditoria imutável + hooks de compliance LGPD</li>
-      </ul>
+
+    <div class="section">
+        <div class="section-title">Core Competencies</div>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <div class="skill-label">AI & Engineering</div>
+                <div class="skill-value">Python · FastAPI · LangChain<br>agentscope · OpenAI · Ollama<br>RAG + pgvector · Docker · GCP<br>PostgreSQL · Redis</div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-label">Governance & Compliance</div>
+                <div class="skill-value">OPA / Rego (Policy-as-Code)<br>NIST AI RMF · EU AI Act<br>LGPD · Bill 2338/2023<br>ISO 42001 · TCU frameworks</div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-label">Leadership & Strategy</div>
+                <div class="skill-value">Multi-project management<br>Contracts & risk governance<br>Regulatory negotiation<br>Financial compliance &amp; audit</div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section>
-    <h2>🛠️ Tech Stack</h2>
-    <div class="stack-grid">
-      <div class="stack-item">🐍 Python</div>
-      <div class="stack-item">🗄️ SQL / PostgreSQL</div>
-      <div class="stack-item">📜 Rego (OPA)</div>
-      <div class="stack-item">⚡ FastAPI</div>
-      <div class="stack-item">🔗 LangChain</div>
-      <div class="stack-item">🤖 agentscope</div>
-      <div class="stack-item">🧠 OpenAI / Ollama</div>
-      <div class="stack-item">🔍 RAG + pgvector</div>
-      <div class="stack-item">⚖️ NIST AI RMF / EU AI Act</div>
-      <div class="stack-item">🔐 LGPD / PL 2338/2023</div>
-      <div class="stack-item">🐳 Docker</div>
-      <div class="stack-item">☁️ GCP</div>
-      <div class="stack-item">🗂️ Redis</div>
-      <div class="stack-item">🛡️ Policy-as-Code</div>
+    <div class="section">
+        <div class="section-title">Professional Experience</div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Agregata Engenharia</span>
+                <span class="job-period">2008 — 2024 &nbsp;·&nbsp; Brasília, DF</span>
+            </div>
+            <div class="job-role">Founder & CEO — Turnkey Corporate Construction</div>
+            <ul class="job-bullets">
+                <li>Founded and scaled a full-service turnkey construction firm, delivering 60+ high-complexity corporate office fit-outs across Brasília, with total contract value exceeding R$30M.</li>
+                <li>Sole point of accountability for end-to-end project governance: architectural and executive design, civil works, electrical infrastructure, structured IT cabling, HVAC, security systems, corporate furniture, commissioning, as-built documentation, and formal client handover.</li>
+                <li>Led multi-disciplinary teams of engineers, architects, procurement specialists, and subcontractors across concurrent projects — enforcing budget, schedule, scope, and quality controls with zero negotiation on delivery standards.</li>
+                <li>Managed complex institutional clients demanding full regulatory compliance and documentary rigor — a discipline now applied directly to AI governance and auditability.</li>
+            </ul>
+            <div class="clients-list">
+                Notable clients: TIM · Brasal · Senac-DF · Sicoob (SIG, Executivo, Empresarial, Sobradinho, Siaa, Samambaia) · Logicalis · Andrade Gutierrez (×2) · Indigo · Le Quartier · Colégio Notarial do Brasil · Febraban · Artplan · Banco Mundial · ACNUR · Boa Safra · ChainTech · Caixa Habitar · CTG Brasil · Fábio Medina Advogados · BMA Advogados · Mattos Filho Advogados
+            </div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Mercoplan</span>
+                <span class="job-period">Prior to 2008 &nbsp;·&nbsp; Brasília, DF</span>
+            </div>
+            <div class="job-role">Regulatory Affairs Consultant — Municipal & Federal Liaison</div>
+            <ul class="job-bullets">
+                <li>Acted as liaison between municipal governments and federal ministries, managing regulatory negotiations and project approval workflows at the federal level.</li>
+                <li>Built deep expertise in navigating complex institutional and bureaucratic frameworks — a skillset directly transferable to AI regulatory compliance, institutional risk, and government-facing AI governance engagements.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Banco do Brasil</span>
+                <span class="job-period">Early career &nbsp;·&nbsp; Brasília, DF</span>
+            </div>
+            <div class="job-role">Bank Officer (Public Examination) — Backoffice & Financial Compliance</div>
+            <ul class="job-bullets">
+                <li>Selected through national civil service examination (concurso público); managed backoffice operations and financial compliance including rubrics auditing and branch administrative controls.</li>
+                <li>Developed foundational rigor in regulatory standards, data accuracy, and administrative accountability within a high-stakes banking environment — principles that directly inform current work in Data Governance and AI Ethics (AIGP).</li>
+            </ul>
+        </div>
     </div>
-  </section>
 
-  <section>
-    <h2>🎯 Diferencial Único</h2>
-    <div class="highlight-box">
-      16 anos gerenciando projetos de construção (R$30M+)<br>
-      → 60+ escritórios corporativos entregues no prazo<br>
-      → Hoje aplico a mesma rigidez em sistemas de IA:<br>
-      <strong>"Se não pode ser auditado, não pode ser implantado."</strong>
+    <div class="section">
+        <div class="section-title">Current Projects (2024 — Present)</div>
+
+        <div class="project">
+            <div class="project-header">
+                <span class="project-name">Fellow Governance</span>
+                <span class="project-status">In active development · github.com/FABIOEVERTON/Fellow_Governance</span>
+            </div>
+            <div class="project-sub">SaaS Platform — AI Governance, Adversarial Defense & Policy-as-Code</div>
+            <ul class="job-bullets">
+                <li>Transforms AI violation notices (ANPD, NIST, EU AI Act, Bill 2338/2023) into auditable legal evidence and executable OPA/Rego policies in under 300 seconds.</li>
+                <li>22 specialized agents (A01–A18 + D01–D04) with deterministic SEK orchestration; immutable audit chain with SHA-256 hashing; forensic ZIP output (legal thesis + evidence + compiled policies).</li>
+                <li>Multi-tenant architecture: PostgreSQL RLS + pgvector + Redis + OPA; frontend in Next.js 14; backend in FastAPI; full OpenTelemetry observability.</li>
+                <li>Target users: AI governance leads, legal counsel, auditors, and DevOps teams requiring compliance-gate deployment pipelines.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-header">
+                <span class="project-name">Ezra Agent</span>
+                <span class="project-status">In active development · github.com/FABIOEVERTON/Ezra_Agent</span>
+            </div>
+            <div class="project-sub">Autonomous Telegram Agent — Production-Grade Governance from Day 1</div>
+            <ul class="job-bullets">
+                <li>Stateless-per-turn agent with persistent vault (Git-synced Obsidian memory), sandboxed script execution, OPA/Rego policy enforcement, and immutable audit log (SHA-256, append-only).</li>
+                <li>Implements full production controls: PII redaction, prompt injection blocking, circuit breaker with model fallback, token budget tracking, and LGPD compliance hooks.</li>
+            </ul>
+        </div>
     </div>
-  </section>
 
-  <section>
-    <h2>📚 Aprendizado Público (720 dias)</h2>
-    <div style="margin-bottom:16px;">
-      <span style="background:var(--success); color:#0d1117; padding:4px 10px; border-radius:6px; font-weight:600; font-size:0.85rem;">🟢 Block 0: Foundations</span>
-      <span style="background:var(--accent); color:#0d1117; padding:4px 10px; border-radius:6px; font-weight:600; font-size:0.85rem; margin-left:8px;">🎓 CIPP/BR Target: Day 169</span>
-      <span style="background:var(--accent); color:#0d1117; padding:4px 10px; border-radius:6px; font-weight:600; font-size:0.85rem; margin-left:8px;">🎓 AIGP Target: Day 170</span>
+    <div class="section">
+        <div class="section-title">Education</div>
+        <div class="edu-row"><span class="edu-degree">Law School — 8 Semesters</span><span class="edu-date">Brasília, DF</span></div>
+        <div class="edu-institution">UniProcessus &nbsp;·&nbsp; Civil Law, Constitutional Law, Administrative Law</div>
+        <div class="edu-row"><span class="edu-degree">Technology Degree in Notarial and Registry Services</span><span class="edu-date">Brasília, DF</span></div>
+        <div class="edu-institution">UniProcessus &nbsp;·&nbsp; Documentary compliance and institutional audit</div>
     </div>
-    <p style="margin-bottom:16px; color:var(--muted);">
-      ✅ <strong>Compromisso</strong>: 1 commit/dia · Progresso verificável · Transparência total
-    </p>
-    <table class="roadmap-table">
-      <thead>
-        <tr>
-          <th>Block</th>
-          <th>Dias</th>
-          <th>Foco</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>0</td><td>1–90</td><td>Linux, Python, Networking, OSINT</td><td class="status in-progress">🔄 In Progress</td></tr>
-        <tr><td>1</td><td>91–390</td><td>Offensive Security, OSCP Prep</td><td class="status upcoming">⏳ Upcoming</td></tr>
-        <tr><td>2-5</td><td>391–510</td><td>Software Eng · Cloud · AI/ML</td><td class="status upcoming">⏳ Upcoming</td></tr>
-        <tr><td>6-10</td><td>511–720</td><td>AI Governance → Enterprise Architecture</td><td class="status upcoming">⏳ Upcoming</td></tr>
-      </tbody>
-    </table>
-  </section>
 
-  <section>
-    <h2>🎓 Formação & Certificações</h2>
-    <ul class="cert-list">
-      <li><strong>Law School</strong> (8 semestres) · UniProcessus · Direito Civil, Constitucional, Administrativo</li>
-      <li><strong>Tecnólogo em Serviços Notariais</strong> · UniProcessus · Compliance documental e auditoria</li>
-      <li><strong>CIPP/BR</strong> (em progresso) · IAPP · Target: Day 169</li>
-      <li><strong>AIGP</strong> (em progresso) · IAPP · Target: Day 170</li>
-      <li><strong>Google Cloud Fundamentals</strong> · Google Cloud Skills Boost · Mar 2026</li>
-    </ul>
-    <p style="margin-top:16px; color:var(--muted); font-size:0.9rem;">
-      Frameworks sob estudo: NIST AI RMF · ISO 42001 · EU AI Act · LGPD · TCU
-    </p>
-  </section>
+    <div class="section">
+        <div class="section-title">Certifications</div>
+        <div class="cert-row"><span class="cert-name">Google Cloud Fundamentals</span><span class="cert-status">Google Cloud Skills Boost &nbsp;·&nbsp; March 2026 ✓</span></div>
+        <div class="cert-row"><span class="cert-name">CIPP/BR — Certified Information Privacy Professional (Brazil)</span><span class="cert-status">IAPP &nbsp;·&nbsp; In progress · Target: Day 169 of 720</span></div>
+        <div class="cert-row"><span class="cert-name">AIGP — AI Governance Professional</span><span class="cert-status">IAPP &nbsp;·&nbsp; In progress · Target: Day 170 of 720</span></div>
+    </div>
 
-  <footer>
-    <p>💡 Open to collaborations in AI governance, regulatory tech, and auditable LLM systems.</p>
-    <p style="margin-top:8px;">
-      📞 +55 61 998407-6881 · 
-      <a href="https://www.linkedin.com/in/fabio-everton-3b62b1129/" target="_blank" style="color:var(--accent);">LinkedIn</a> · 
-      <a href="https://github.com/FABIOEVERTON" target="_blank" style="color:var(--accent);">GitHub</a>
-    </p>
-    <p style="margin-top:16px; font-size:0.85rem; color:var(--muted);">
-      <!-- Made with purpose · Updated: April 2026 -->
-    </p>
-  </footer>
-
-  <script>
-    // Smooth scroll para links internos (se adicionar depois)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
+    <div class="section">
+        <div class="section-title">Structured Learning Roadmap — 720 Days (Public, 1 Commit/Day)</div>
+        <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:8px;">Transparent, verifiable daily progress on GitHub — every deliverable committed publicly.</div>
+        <div class="roadmap-bar">
+            <span class="phase-pill active">Block 0 · Days 1–90 · Linux, Python, Networking, OSINT</span>
+            <span class="phase-pill">Block 1 · Days 91–390 · Offensive Security, OSCP Prep</span>
+            <span class="phase-pill">Block 2–5 · Days 391–510 · Software Eng, Cloud, AI/ML</span>
+            <span class="phase-pill">Block 6–10 · Days 511–720 · AI Governance → Enterprise Architecture</span>
+        </div>
+        <div style="font-size:12px;color:var(--color-text-secondary);margin-top:8px">Frameworks under study: NIST AI RMF · ISO 42001 · EU AI Act · LGPD · TCU · CKS · OSCP</div>
+    </div>
+</div>
 </body>
 </html>
