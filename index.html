@@ -1,0 +1,393 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fabio Everton | AI Governance Engineer</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-hover: #79c0ff;
+      --success: #3fb950;
+      --warning: #d29922;
+      --danger: #f85149;
+      --gradient: linear-gradient(135deg, #58a6ff, #bc8cff);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(88,166,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+    .tagline {
+      background: rgba(88,166,255,0.1);
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+      font-style: italic;
+    }
+    .badges {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0d1117;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+    .btn-success { background: var(--success); border-color: var(--success); color: #0d1117; }
+    .btn-whatsapp { background: #25D366; border-color: #25D366; color: #0d1117; }
+    
+    .contact-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+      padding: 16px;
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+    h3 { margin: 16px 0 8px; color: var(--text); }
+    
+    .project {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .project:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .project a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .project a:hover { text-decoration: underline; }
+    .features { list-style: none; padding-left: 0; }
+    .features li {
+      padding: 4px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .features li::before {
+      content: '✅';
+      position: absolute;
+      left: 0;
+    }
+    
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .stack-item {
+      background: rgba(88,166,255,0.1);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    
+    .roadmap-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .roadmap-table th, .roadmap-table td {
+      padding: 10px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .roadmap-table th { background: rgba(88,166,255,0.1); }
+    .status { font-weight: 600; }
+    .in-progress { color: var(--success); }
+    .upcoming { color: var(--muted); }
+    
+    .highlight-box {
+      background: rgba(63,185,80,0.1);
+      border-left: 3px solid var(--success);
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+    
+    .cert-list { list-style: none; }
+    .cert-list li {
+      padding: 6px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    .cert-list li::before {
+      content: '🎓';
+      position: absolute;
+      left: 0;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+    }
+    
+    @media print {
+      body { background: #fff; color: #000; }
+      .btn, .contact-bar, footer { display: none; }
+      section { border: 1px solid #ccc; break-inside: avoid; }
+      a { color: #000; text-decoration: none; }
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Fabio Everton 🇧🇷</h1>
+    <div class="subtitle">AI Governance Engineer | LLM Agents | OPA/Rego | LGPD & PL 2338/2023</div>
+    
+    <div class="tagline">
+      🔐 I build AI systems that don't just work — they can be audited, explained, and defended in court.
+    </div>
+    
+    <div class="badges">
+      <span style="background:rgba(88,166,255,0.15); padding:4px 12px; border-radius:20px; font-size:0.85rem;">🛡️ AI Governance</span>
+      <span style="background:rgba(63,185,80,0.15); padding:4px 12px; border-radius:20px; font-size:0.85rem;">⚖️ Legal-Tech</span>
+      <span style="background:rgba(210,153,34,0.15); padding:4px 12px; border-radius:20px; font-size:0.85rem;">🤖 LLM Agents</span>
+    </div>
+  </header>
+
+  <div class="contact-bar">
+    <a href="https://www.linkedin.com/in/fabio-everton-3b62b1129/" target="_blank" class="btn btn-primary">
+      🔗 LinkedIn Profile
+    </a>
+    <a href="https://github.com/FABIOEVERTON?tab=repositories" target="_blank" class="btn">
+      💻 Public Repositories
+    </a>
+    <a href="https://wa.me/5561998407681" target="_blank" class="btn btn-whatsapp">
+      📱 WhatsApp
+    </a>
+    <button onclick="window.print()" class="btn btn-success">
+      📄 Save as PDF
+    </button>
+  </div>
+
+  <div style="text-align:center; margin:10px 0; color:var(--muted);">
+    📍 Brasília, Brazil · Open to remote · 📞 +55 61 99840-7681
+  </div>
+
+  <section>
+    <h2>🚀 Featured Projects</h2>
+    
+    <div class="project">
+      <h3>🛡️ <a href="https://github.com/FABIOEVERTON/Fellow_Governance" target="_blank">Fellow Governance</a></h3>
+      <p style="color:var(--muted); margin-bottom:10px;">
+        Transforma notificações de violação de IA (ANPD, NIST, EU AI Act) em <strong>evidência jurídica auditável + políticas Rego executáveis</strong> em &lt;300s.
+      </p>
+      <ul class="features">
+        <li>22 agentes especializados com orquestração determinística (SEK)</li>
+        <li>Motor OPA/Rego com cadeia de auditoria imutável (SHA-256)</li>
+        <li>Geração de ZIP forense: tese + evidências + políticas compiladas</li>
+        <li>Arquitetura multi-tenant com PostgreSQL RLS + pgvector</li>
+      </ul>
+    </div>
+    
+    <div class="project">
+      <h3>🤖 <a href="https://github.com/FABIOEVERTON/Ezra_Agent" target="_blank">Ezra Agent</a></h3>
+      <p style="color:var(--muted); margin-bottom:10px;">
+        Agente autônomo no Telegram com <strong>governança production-grade desde o dia 1</strong>.
+      </p>
+      <ul class="features">
+        <li>Execução sandboxed com limites de syscall</li>
+        <li>Filtro de PII + bloqueio de prompt injection</li>
+        <li>Circuit breaker com fallback de modelo</li>
+        <li>Log de auditoria imutável + hooks de compliance LGPD</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>🛠️ Tech Stack</h2>
+    <div class="stack-grid">
+      <div class="stack-item">🐍 Python</div>
+      <div class="stack-item">🗄️ SQL / PostgreSQL</div>
+      <div class="stack-item">📜 Rego (OPA)</div>
+      <div class="stack-item">⚡ FastAPI</div>
+      <div class="stack-item">🔗 LangChain</div>
+      <div class="stack-item">🤖 agentscope</div>
+      <div class="stack-item">🧠 OpenAI / Ollama</div>
+      <div class="stack-item">🔍 RAG + pgvector</div>
+      <div class="stack-item">⚖️ NIST AI RMF / EU AI Act</div>
+      <div class="stack-item">🔐 LGPD / PL 2338/2023</div>
+      <div class="stack-item">🐳 Docker</div>
+      <div class="stack-item">☁️ GCP</div>
+      <div class="stack-item">🗂️ Redis</div>
+      <div class="stack-item">🛡️ Policy-as-Code</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🎯 Diferencial Único</h2>
+    <div class="highlight-box">
+      16 anos gerenciando projetos de construção (R$30M+)<br>
+      → 60+ escritórios corporativos entregues no prazo<br>
+      → Hoje aplico a mesma rigidez em sistemas de IA:<br>
+      <strong>"Se não pode ser auditado, não pode ser implantado."</strong>
+    </div>
+  </section>
+
+  <section>
+    <h2>📚 Aprendizado Público (720 dias)</h2>
+    <div style="margin-bottom:16px;">
+      <span style="background:var(--success); color:#0d1117; padding:4px 10px; border-radius:6px; font-weight:600; font-size:0.85rem;">🟢 Block 0: Foundations</span>
+      <span style="background:var(--accent); color:#0d1117; padding:4px 10px; border-radius:6px; font-weight:600; font-size:0.85rem; margin-left:8px;">🎓 CIPP/BR Target: Day 169</span>
+      <span style="background:var(--accent); color:#0d1117; padding:4px 10px; border-radius:6px; font-weight:600; font-size:0.85rem; margin-left:8px;">🎓 AIGP Target: Day 170</span>
+    </div>
+    <p style="margin-bottom:16px; color:var(--muted);">
+      ✅ <strong>Compromisso</strong>: 1 commit/dia · Progresso verificável · Transparência total
+    </p>
+    <table class="roadmap-table">
+      <thead>
+        <tr>
+          <th>Block</th>
+          <th>Dias</th>
+          <th>Foco</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>1–90</td><td>Linux, Python, Networking, OSINT</td><td class="status in-progress">🔄 In Progress</td></tr>
+        <tr><td>1</td><td>91–390</td><td>Offensive Security, OSCP Prep</td><td class="status upcoming">⏳ Upcoming</td></tr>
+        <tr><td>2-5</td><td>391–510</td><td>Software Eng · Cloud · AI/ML</td><td class="status upcoming">⏳ Upcoming</td></tr>
+        <tr><td>6-10</td><td>511–720</td><td>AI Governance → Enterprise Architecture</td><td class="status upcoming">⏳ Upcoming</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>🎓 Formação & Certificações</h2>
+    <ul class="cert-list">
+      <li><strong>Law School</strong> (8 semestres) · UniProcessus · Direito Civil, Constitucional, Administrativo</li>
+      <li><strong>Tecnólogo em Serviços Notariais</strong> · UniProcessus · Compliance documental e auditoria</li>
+      <li><strong>CIPP/BR</strong> (em progresso) · IAPP · Target: Day 169</li>
+      <li><strong>AIGP</strong> (em progresso) · IAPP · Target: Day 170</li>
+      <li><strong>Google Cloud Fundamentals</strong> · Google Cloud Skills Boost · Mar 2026</li>
+    </ul>
+    <p style="margin-top:16px; color:var(--muted); font-size:0.9rem;">
+      Frameworks sob estudo: NIST AI RMF · ISO 42001 · EU AI Act · LGPD · TCU
+    </p>
+  </section>
+
+  <footer>
+    <p>💡 Open to collaborations in AI governance, regulatory tech, and auditable LLM systems.</p>
+    <p style="margin-top:8px;">
+      📞 +55 61 998407-6881 · 
+      <a href="https://www.linkedin.com/in/fabio-everton-3b62b1129/" target="_blank" style="color:var(--accent);">LinkedIn</a> · 
+      <a href="https://github.com/FABIOEVERTON" target="_blank" style="color:var(--accent);">GitHub</a>
+    </p>
+    <p style="margin-top:16px; font-size:0.85rem; color:var(--muted);">
+      <!-- Made with purpose · Updated: April 2026 -->
+    </p>
+  </footer>
+
+  <script>
+    // Smooth scroll para links internos (se adicionar depois)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(anchor.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
