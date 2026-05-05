@@ -1,179 +1,524 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Fabio Everton · AI Governance Engineering · Resume</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Fábio Everton - Senior Project Operations Manager</title>
+  <!-- Font Awesome 6 (gratuito para ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+    body {
+      background: #eef2f5;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.45;
+      color: #1a2c3e;
+      padding: 2rem 1rem;
+    }
 
-:root{
-  --font:'Inter',system-ui,sans-serif;
-  --bg:#ffffff;
-  --bg2:#f8fafc;
-  --text:#0f172a;
-  --muted:#475569;
-  --line:#e2e8f0;
-  --accent:#1e40af;
-}
+    /* container principal estilo card */
+    .resume-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
 
-body{
-  font-family:var(--font);
-  background:#eef2f5;
-  padding:24px;
-  color:var(--text);
-  line-height:1.5;
-}
+    /* header com gradiente sóbrio */
+    .header {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4a5f 100%);
+      padding: 2rem 2rem 1.8rem 2rem;
+      color: white;
+    }
 
-.cv{
-  max-width:900px;
-  margin:auto;
-  background:var(--bg);
-  padding:32px;
-  border-radius:18px;
-}
+    .name {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
 
-h1{font-size:28px;margin-bottom:6px}
-h2{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:14px}
+    .title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      opacity: 0.92;
+      margin-bottom: 0.3rem;
+    }
 
-.section{margin-top:22px}
-.title{
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:6px;
-  margin-bottom:12px;
-}
+    .tagline {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      margin-top: 0.25rem;
+      font-weight: 400;
+      border-left: 3px solid #6ab0c6;
+      padding-left: 12px;
+      margin-top: 10px;
+    }
 
-.item{margin-bottom:16px}
-.row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .location {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
-.bold{font-weight:600}
-.muted{color:var(--muted);font-size:13px}
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
 
-ul{margin-top:8px;padding-left:18px}
-li{font-size:13px;margin-bottom:6px}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.65rem 1.3rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: white;
+      text-decoration: none;
+      transition: 0.2s;
+      cursor: pointer;
+      font-family: inherit;
+    }
 
-.tag{
-  background:var(--bg2);
-  border-left:3px solid var(--accent);
-  padding:10px 12px;
-  font-size:13px;
-  margin-top:10px;
-}
+    .btn i {
+      font-size: 1rem;
+    }
 
-.small{font-size:12px;color:var(--muted)}
-</style>
+    .btn:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .btn-print {
+      background: #2c6e4f;
+      border-color: #408e6a;
+    }
+
+    .btn-print:hover {
+      background: #1f5a41;
+    }
+
+    /* conteúdo principal */
+    .content {
+      padding: 2rem 2rem 2.5rem 2rem;
+    }
+
+    /* seções */
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a4a5f;
+      border-left: 5px solid #1a4a5f;
+      padding-left: 14px;
+      margin-bottom: 1rem;
+      letter-spacing: -0.2px;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .exec-summary {
+      background: #f8fafc;
+      padding: 1.2rem 1.5rem;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      border: 1px solid #e2edf2;
+    }
+
+    .exec-summary p {
+      margin-bottom: 0.75rem;
+      text-align: justify;
+    }
+
+    .job-item, .edu-item {
+      margin-bottom: 1.4rem;
+    }
+
+    .job-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #0e2f3f;
+    }
+
+    .job-company {
+      font-weight: 600;
+      color: #2c6e4f;
+    }
+
+    .job-date {
+      font-size: 0.8rem;
+      color: #5f7f8c;
+      font-weight: 500;
+    }
+
+    .job-location {
+      font-size: 0.8rem;
+      color: #5f7f8c;
+      margin-bottom: 0.5rem;
+    }
+
+    .job-desc {
+      margin-top: 0.5rem;
+      padding-left: 0.5rem;
+      border-left: 2px solid #cbdde4;
+    }
+
+    .job-desc ul {
+      margin-left: 1.2rem;
+      list-style: disc;
+    }
+
+    .job-desc li {
+      margin: 0.3rem 0;
+      text-align: justify;
+    }
+
+    .skills-badge {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-tag {
+      background: #e4f0f5;
+      color: #145c74;
+      padding: 0.3rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .skill-category {
+      margin-bottom: 1rem;
+    }
+
+    .skill-category strong {
+      color: #1a4a5f;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    hr {
+      margin: 1rem 0;
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, #cbdde4, transparent);
+    }
+
+    .note-consistency {
+      background: #fef9e6;
+      border-left: 6px solid #e6b91e;
+      padding: 1rem 1.4rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-top: 1.8rem;
+      color: #7a6300;
+    }
+
+    @media (max-width: 700px) {
+      .header {
+        padding: 1.5rem;
+      }
+      .content {
+        padding: 1.5rem;
+      }
+      .name {
+        font-size: 1.8rem;
+      }
+      .button-group {
+        justify-content: center;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+      .resume-container {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+      }
+      .button-group {
+        display: none;
+      }
+      .btn {
+        display: none;
+      }
+      .btn-print {
+        display: none;
+      }
+      .header {
+        background: #0b2b3b;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+      .section-title {
+        print-color-adjust: exact;
+      }
+      .skill-tag {
+        background: #e4f0f5;
+        print-color-adjust: exact;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .job-date, .job-location {
+        color: #2e4c5c;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<div class="cv">
+<div class="resume-container" id="resume-card">
+  <!-- cabeçalho com botões -->
+  <div class="header">
+    <div class="name">FABIO EVERTON</div>
+    <div class="title">Senior Project Operations Manager</div>
+    <div class="tagline">Infrastructure & Complex Turnkey Delivery | Contractual Governance | Regulatory Compliance | Technology-Enabled Operations</div>
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i> Park Way, Federal District, Brazil
+    </div>
+    <div class="button-group">
+      <!-- Linkedin -->
+      <a href="https://www.linkedin.com/in/fabio-everton-3b62b1129/" target="_blank" rel="noopener noreferrer" class="btn">
+        <i class="fab fa-linkedin-in"></i> LinkedIn
+      </a>
+      <!-- Telefone com link whatsapp/tel nativo -->
+      <a href="tel:+5561984076881" class="btn">
+        <i class="fas fa-phone-alt"></i> +55 61 98407-6881
+      </a>
+      <!-- botão gerar PDF = aciona print, já configurado para salvar como PDF -->
+      <button id="printPdfBtn" class="btn btn-print">
+        <i class="fas fa-file-pdf"></i> Gerar PDF / Imprimir
+      </button>
+    </div>
+  </div>
 
-<h1>Fabio Everton</h1>
-<h2>AI Governance Engineering · LLM Systems · Policy-as-Code · Compliance (LGPD / EU AI Act / NIST AI RMF)</h2>
+  <div class="content">
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="exec-summary">
+      <strong style="font-size: 1rem; color: #0f4c5f;"><i class="fas fa-chart-line"></i> EXECUTIVE SUMMARY</strong>
+      <p>Senior Project Operations professional with over sixteen years of experience directing complex infrastructure and turnkey delivery programmes across corporate, urban development, and critical technical environments.</p>
+      <p>Demonstrates robust expertise in end-to-end project execution, seamlessly integrating scope control, scheduling, cost management, and delivery governance within high-complexity, multi-stakeholder environments where operational precision and regulatory compliance remain paramount.</p>
+      <p>Professional trajectory encompasses large-scale infrastructure programmes, corporate fit-out delivery, regulated financial operations, and government-facing institutional settings, establishing a rigorous foundation in governance-driven execution and risk-aware project delivery.</p>
+      <p>Current professional focus centres upon the integration of structured project operations with technology-enabled systems, notably automation and AI-supported workflows, applied to governance, execution control, and operational predictability.</p>
+    </div>
 
-<div class="section">
-<div class="title">Professional Summary</div>
-<p style="font-size:13px">
-AI Governance & Systems Engineer with 16+ years of experience in complex infrastructure delivery, regulatory environments, and financial compliance.
-Background spans large-scale construction projects (R$30M+), public financial operations (Banco do Brasil), and institutional regulatory negotiation (Mercoplan).
-Current focus: AI governance systems, auditability architectures, and compliance-by-design engineering applied to real-world operations.
-</p>
+    <!-- CORE EXPERTISE (grid) -->
+    <div class="section">
+      <div class="section-title"><i class="fas fa-cogs" style="margin-right: 8px;"></i> CORE EXPERTISE</div>
+      <div class="grid-2col">
+        <div>
+          <ul style="margin-left: 1.2rem; list-style: square;">
+            <li>End-to-End Project Operations (scope, schedule, cost, and delivery control)</li>
+            <li>Turnkey Infrastructure Delivery (60+ complex projects)</li>
+            <li>Programme & Portfolio Management within multi-project environments</li>
+            <li>Regulatory Compliance & Contractual Governance</li>
+          </ul>
+        </div>
+        <div>
+          <ul style="margin-left: 1.2rem; list-style: square;">
+            <li>Stakeholder & Vendor Coordination across complex ecosystems</li>
+            <li>Risk Management in high-constraint operational environments</li>
+            <li>Structured Execution Systems for delivery predictability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<div class="tag">
-Principle: systems must be auditable, explainable, and operationally resilient before scale.
-</div>
+    <!-- PROFESSIONAL EXPERIENCE -->
+    <div class="section">
+      <div class="section-title"><i class="fas fa-briefcase"></i> PROFESSIONAL EXPERIENCE</div>
+
+      <!-- AI Governance -->
+      <div class="job-item">
+        <div class="job-header">
+          <span class="job-title">AI Governance & Systems Initiative (Independent)</span>
+          <span class="job-date">Dec 2024 – Present</span>
+        </div>
+        <div class="job-company">Independent Consultant</div>
+        <div class="job-location">Remote</div>
+        <div class="job-desc">
+          <ul>
+            <li>Orchestrated a strategic transition into AI-enabled project operations and governance frameworks.</li>
+            <li>Applied foundational infrastructure project control principles to digital systems, prioritising structured execution, risk governance, and auditability within automated and AI-supported environments.</li>
+            <li><strong>Key activities:</strong> Designed governance-oriented system architectures modelled upon infrastructure delivery frameworks; analysed regulatory frameworks for AI systems, including LGPD and emerging global standards; developed structured execution and control models tailored to automated workflows; translated established project governance principles into digital and AI-driven operational contexts.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Agregata Construções -->
+      <div class="job-item">
+        <div class="job-header">
+          <span class="job-title">Founder | Senior Project Operations Manager</span>
+          <span class="job-date">Jan 2008 – Dec 2024</span>
+        </div>
+        <div class="job-company">Agregata Construções</div>
+        <div class="job-location">Brazil</div>
+        <div class="job-desc">
+          <ul>
+            <li>Founded and directed a construction and infrastructure enterprise responsible for delivering over sixty turnkey projects, encompassing corporate offices, infrastructure systems, and specialised technical environments.</li>
+            <li>Managed full project lifecycles, encompassing planning, execution, delivery, and formal handover.</li>
+            <li>Coordinated multidisciplinary engineering teams spanning civil, electrical, MEP, and IT infrastructure disciplines.</li>
+            <li>Oversaw vendor and contractor management across intricate delivery supply chains; maintained strict control over budget allocations, scheduling parameters, and operational risk mitigation.</li>
+            <li>Ensured rigorous regulatory compliance and technical governance throughout all phases; delivered fully operational environments upon project completion.</li>
+            <li>Successfully executed projects ranging from corporate fit-outs to complex infrastructure systems requiring integrated technical execution and stringent delivery oversight.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Banco do Brasil -->
+      <div class="job-item">
+        <div class="job-header">
+          <span class="job-title">Operations & Compliance Analyst (Backoffice)</span>
+          <span class="job-date">Jan 2007 – Dec 2007</span>
+        </div>
+        <div class="job-company">Banco do Brasil</div>
+        <div class="job-location">Brazil</div>
+        <div class="job-desc">
+          <ul>
+            <li>Operated within a highly regulated banking environment, prioritising operational accuracy, compliance adherence, and financial data integrity.</li>
+            <li>Validated and processed financial and contractual documentation; maintained customer and corporate data within core banking infrastructure.</li>
+            <li>Executed standardised operational workflows with precision; supported credit processing, account management, and internal control mechanisms; conducted financial reconciliation and resolved operational discrepancies.</li>
+            <li>Gained substantial exposure to regulated operational systems governed by strict compliance and audit protocols.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MERCOPLAN -->
+      <div class="job-item">
+        <div class="job-header">
+          <span class="job-title">Government Relations & Strategic Consultant</span>
+          <span class="job-date">Jan 2004 – Dec 2006</span>
+        </div>
+        <div class="job-company">MERCOPLAN</div>
+        <div class="job-location">Brazil</div>
+        <div class="job-desc">
+          <ul>
+            <li>Operated within institutional frameworks, facilitating coordination between municipal governments and federal agencies.</li>
+            <li>Served as a strategic liaison between public institutions and regulatory bodies; supported regulatory approval processes and associated documentation requirements.</li>
+            <li>Aligned project specifications with public sector constraints and operational mandates; coordinated multi-stakeholder engagement within formal institutional environments.</li>
+            <li>Acquired foundational expertise in regulatory systems and multi-tiered governance structures.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION + Technical Skills em grid -->
+    <div class="grid-2col" style="margin-bottom: 0.5rem;">
+      <div class="section">
+        <div class="section-title"><i class="fas fa-graduation-cap"></i> EDUCATION</div>
+        <div class="edu-item">
+          <div class="job-title">Uniprocessus</div>
+          <div><strong>Bachelor’s Degree in Law (Juridical Sciences)</strong> | <em>Jan 2021 – Dec 2024</em></div>
+          <div style="font-size: 0.9rem; margin-top: 5px;">Completed advanced academic studies in Civil Law, Constitutional Law, Contract Law, and Administrative Procedures.</div>
+        </div>
+        <div class="edu-item">
+          <div class="job-title">Centro Universitário Processus – UniProcessus</div>
+          <div><strong>Degree in Legal Operations & Notarial Sciences</strong> | <em>Jan 2021 – Dec 2023</em></div>
+          <div style="font-size: 0.9rem; margin-top: 5px;">Completed academic training in notarial systems, registry law, legal documentation, and procedural compliance within civil law frameworks.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><i class="fas fa-microchip"></i> TECHNICAL SKILLS</div>
+        <div class="skill-category"><strong>Project & Operations Management</strong>
+          <div class="skills-badge">
+            <span class="skill-tag">Infrastructure Projects & Development</span>
+            <span class="skill-tag">Turnkey Project Delivery</span>
+            <span class="skill-tag">Programme & Operations Management</span>
+            <span class="skill-tag">Risk & Stakeholder Management</span>
+            <span class="skill-tag">Contractual Governance & Regulatory Compliance</span>
+            <span class="skill-tag">Technology-Enabled Operations & Process Automation</span>
+          </div>
+        </div>
+        <div class="skill-category"><strong>Technology & Engineering</strong>
+          <div class="skills-badge">
+            <span class="skill-tag">Artificial Intelligence (AI) & LLM</span>
+            <span class="skill-tag">Python Programming</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Google Cloud Platform (GCP)</span>
+            <span class="skill-tag">DevSecOps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POSITIONING -->
+    <div class="section">
+      <div class="section-title"><i class="fas fa-bullseye"></i> POSITIONING</div>
+      <p>Professional profile strategically aligned with senior leadership positions in:</p>
+      <ul style="margin-left: 2rem; margin-top: 0.3rem;">
+        <li>Project Operations Management</li>
+        <li>Infrastructure & Turnkey Delivery</li>
+        <li>Programme Management</li>
+        <li>Operational Governance within complex environments</li>
+        <li>Technology-enabled project execution systems</li>
+      </ul>
+    </div>
+
+    <!-- NOTE ON CONSISTENCY -->
+    <div class="note-consistency">
+      <i class="fas fa-check-circle" style="margin-right: 8px;"></i> <strong>NOTE ON CONSISTENCY</strong><br>
+      All sections have been meticulously structured to maintain a unified positioning axis:<br>
+      <em>Project Operations leadership within complex infrastructure environments, underpinned by rigorous governance discipline and technology-enabled execution systems.</em>
+    </div>
+  </div>
 </div>
 
-<div class="section">
-<div class="title">Core Skills</div>
-<p class="small">
-Python · FastAPI · LLM Systems · RAG · Docker · GCP · PostgreSQL · OPA/Rego · DevSecOps · Governance Engineering · Risk & Compliance Systems
-</p>
-</div>
+<script>
+  // função que aciona o print do navegador -> gera PDF nativamente (salvar como PDF)
+  const printBtn = document.getElementById('printPdfBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
 
-<div class="section">
-<div class="title">Professional Experience</div>
+  // garantir que o link do telefone funcione como esperado e qualquer clique externo 
+  // também pode-se usar fallback caso queira copiar, mas já está com tel:
+  // tudo ok.
+</script>
 
-<div class="item">
-<div class="row">
-<span class="bold">Braschat Construções (formerly Agregata)</span>
-<span class="muted">2008 – 2024 · Brazil</span>
-</div>
-<p class="muted">Founder · Turnkey Infrastructure & Project Operations</p>
-<ul>
-<li>Led end-to-end delivery of 60+ corporate infrastructure projects (office fit-outs and technical environments).</li>
-<li>Managed full project lifecycle: planning, procurement, execution, compliance, and final handover.</li>
-<li>Coordinated multidisciplinary teams across engineering, vendors, and client stakeholders.</li>
-<li>Applied structured governance practices to control cost, scope, and delivery risk in high-complexity environments.</li>
-</ul>
-</div>
-
-<div class="item">
-<div class="row">
-<span class="bold">Mercoplan</span>
-<span class="muted">2004 – 2006 · Brazil</span>
-</div>
-<p class="muted">Government & Regulatory Operations</p>
-<ul>
-<li>Supported regulatory liaison between municipal and federal institutions.</li>
-<li>Assisted in approval workflows and documentation for public-sector projects.</li>
-<li>Developed strong exposure to institutional governance and regulatory frameworks.</li>
-</ul>
-</div>
-
-<div class="item">
-<div class="row">
-<span class="bold">Banco do Brasil</span>
-<span class="muted">Early Career · Brazil</span>
-</div>
-<p class="muted">Operations & Compliance Support (Backoffice)</p>
-<ul>
-<li>Worked in banking backoffice operations supporting document verification and financial compliance processes.</li>
-<li>Performed data validation, account maintenance, and procedural controls aligned with internal banking regulations.</li>
-<li>Ensured accuracy and traceability of operational records within regulated financial workflows.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="section">
-<div class="title">Current Focus</div>
-
-<div class="item">
-<p class="bold">AI Governance Systems (R&D)</p>
-<ul>
-<li>Designing governance-oriented AI architectures focused on auditability and policy enforcement.</li>
-<li>Exploring policy-as-code (OPA/Rego), LLM orchestration, and compliance automation patterns.</li>
-<li>Transitioning operational knowledge from infrastructure delivery into AI systems engineering.</li>
-</ul>
-</div>
-
-</div>
-
-<div class="section">
-<div class="title">Education</div>
-
-<div class="item">
-<div class="row">
-<span class="bold">Law (8 semesters)</span>
-<span class="muted">2021 – 2024</span>
-</div>
-<p class="small">Civil, Constitutional, Administrative & Contract Law — regulatory systems foundation</p>
-</div>
-
-<div class="item">
-<div class="row">
-<span class="bold">Notarial & Registry Technology</span>
-<span class="muted">2021 – 2023</span>
-</div>
-<p class="small">Legal documentation, registry systems, compliance structures, auditability frameworks</p>
-</div>
-
-</div>
-
-</div>
 </body>
 </html>
