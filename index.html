@@ -251,6 +251,11 @@
       color: #7a6300;
     }
 
+    /* FORCE PAGE BREAK BEFORE POSITIONING SECTION IN PRINT */
+    .page-break-before {
+      page-break-before: always;
+    }
+
     @media (max-width: 700px) {
       .header {
         padding: 1.5rem;
@@ -494,8 +499,8 @@
       </div>
     </div>
 
-    <!-- POSITIONING SUMMARY -->
-    <div class="section">
+    <!-- POSITIONING SUMMARY WITH PAGE BREAK BEFORE - STARTS ON NEW PAGE IN PDF -->
+    <div class="section page-break-before">
       <div class="section-title"><i class="fas fa-chart-simple"></i> POSITIONING SUMMARY</div>
       <p>Professional profile aligned with senior roles in:</p>
       <ul style="margin-left: 1.8rem; margin-top: 0.5rem;">
