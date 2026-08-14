@@ -1,6 +1,3 @@
-Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura que fizemos, mantendo o seu design intacto. Basta copiar e substituir o seu arquivo inteiro:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +61,7 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
       margin-top: 16px;
       font-size: 13px;
       color: #cbd5e1;
+      flex-wrap: wrap;
     }
     .header .contact span { display: flex; align-items: center; gap: 6px; }
     .body { padding: 40px 56px; }
@@ -188,6 +186,11 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
       background: #dbeafe;
       color: #1e40af;
     }
+    .skill-items span.basic {
+      background: #f1f5f9;
+      color: #94a3b8;
+      font-style: italic;
+    }
     .certs-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -209,6 +212,23 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
       color: #64748b;
       display: flex;
       justify-content: space-between;
+    }
+    .cert-item.cert-pending {
+      background: #fffbeb;
+      border-color: #fde68a;
+    }
+    .cert-item.cert-pending .cert-name::after {
+      content: ' (in preparation)';
+      font-size: 11px;
+      font-weight: 500;
+      color: #b45309;
+      text-transform: lowercase;
+    }
+    .certs-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #64748b;
+      font-style: italic;
     }
     @media (max-width: 640px) {
       .header { padding: 32px 24px; }
@@ -232,6 +252,7 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
       <div class="contact">
         <span>Brasília, DF — Brazil (Open to Remote/Relocation)</span>
         <span>linkedin.com/in/fabio-everton</span>
+        <span>github.com/FABIOEVERTON</span>
       </div>
     </div>
 
@@ -239,10 +260,9 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
       <div class="section">
         <div class="section-title">Profile</div>
         <div class="narrative">
-          <strong>I am not a junior competing on syntax.</strong>
-          I am a senior professional applying 16+ years of business execution — P&amp;L, contracts, risk, governance, compliance — to Cloud Architecture (OCI) and AI Systems Governance.<br><br>
-          Currently advancing through the Oracle ONE 2026 program and the full OCI certification track, I specialize in building governed, multi-agent orchestration systems. Using n8n, LangChain, RAG, and LangGraph on OCI, I develop automated workflows that integrate enterprise tools to solve complex operational bottlenecks.<br><br>
-          Today, I translate my foundational experience — successfully delivering 60+ large-scale corporate projects from bare shell to full operation — into cloud-native architectures and AI governance frameworks. I design AI systems that are not only technologically advanced but operationally secure, auditable, and aligned with business goals.
+          Senior professional transitioning 16+ years of business execution — P&amp;L, contracts, risk, governance, compliance — into Cloud Architecture (OCI) and AI Systems Governance.<br><br>
+          Currently advancing through the Oracle ONE 2026 program and the OCI certification track, I focus on building governed, multi-agent orchestration systems. Using n8n, LangChain, RAG and LangGraph on OCI, I develop automated workflows that integrate enterprise tools to solve operational bottlenecks — with code that is public and verifiable on GitHub.<br><br>
+          I translate my foundational experience — delivering 60+ large-scale corporate projects from bare shell to full operation — into cloud-native architectures and AI governance frameworks: systems that are secure, auditable, and aligned with business goals.
         </div>
       </div>
 
@@ -257,13 +277,13 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
             </div>
             <div class="exp-date">Dec 2024 – Present</div>
           </div>
-          <div class="context-label">The Pivot — Operations Governance applied to AI Systems</div>
+          <div class="context-label">Bridging Complex Project Delivery with Cloud Architecture & AI Systems Governance</div>
           <div class="exp-desc">
-            Bridging 16+ years of complex project delivery with Cloud Architecture and AI Systems Governance. Applying enterprise-grade operational controls to digital workflows and autonomous AI agents.
+            Applying enterprise-grade operational controls to digital workflows and autonomous AI agents.
             <ul>
-              <li><strong>Multi-Agent Orchestration:</strong> Designing automated, governed workflows using n8n, LangChain, and LangGraph on OCI, integrating enterprise tools with predictable execution.</li>
-              <li><strong>AI Governance & Compliance:</strong> Architecting governance models aligned with emerging AI frameworks (EU AI Act, NIST) and data privacy laws (LGPD) for secure deployments.</li>
-              <li><strong>Operational Transformation:</strong> Translating physical infrastructure risk management and quality control principles into cloud-native system design.</li>
+              <li><strong>Multi-Agent Orchestration:</strong> designing governed workflows with n8n, LangChain and LangGraph on OCI, integrating enterprise tools with predictable execution. Verifiable: github.com/FABIOEVERTON — 9 public projects (production Telegram agents, RAG with ChromaDB, Docker, CI/CD).</li>
+              <li><strong>AI Governance & Compliance:</strong> AIGP candidate (IAPP), CIPP/E in progress; applying NIST AI RMF, EU AI Act and LGPD to secure AI deployments.</li>
+              <li><strong>Operational Transformation:</strong> translating physical-infrastructure risk management and quality control into cloud-native system design.</li>
             </ul>
           </div>
           <div class="transfer-skills">
@@ -317,7 +337,7 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
             Operated in a high-control banking back-office environment focused on operational accuracy, data integrity, and compliance across critical financial processes.
             <ul>
               <li><strong>Regulatory Compliance:</strong> Executed standardized operational workflows for credit operations and contractual records, ensuring strict adherence to internal banking standards and federal frameworks.</li>
-              <li><strong>Data Integrity & Risk Control:</strong> Maintained corporate data within core banking systems, handling structured data validation in a high-confidentiality, risk-aware environment.</li>
+              <li><strong>Data Integrity &amp; Risk Control:</strong> Maintained corporate data within core banking systems, handling structured data validation in a high-confidentiality, risk-aware environment.</li>
             </ul>
             <div class="transfer-skills" style="margin-top:8px">
               <span>Data Integrity</span>
@@ -339,8 +359,8 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
           <div class="exp-desc">
             Operated in structured government-facing environments, coordinating interactions between municipal agencies and federal ministries. Focused on regulatory alignment and project approval processes within formal institutional frameworks.
             <ul>
-              <li><strong>Regulatory Interpretation & Compliance:</strong> Ensured complex project requirements were strictly aligned with governmental constraints, federal regulations, and multi-level public administration procedures.</li>
-              <li><strong>Stakeholder Management & Governance:</strong> Managed structured negotiations and institutional interfaces across complex systems, ensuring disciplined execution within formal public policies.</li>
+              <li><strong>Regulatory Interpretation &amp; Compliance:</strong> Ensured complex project requirements were strictly aligned with governmental constraints, federal regulations, and multi-level public administration procedures.</li>
+              <li><strong>Stakeholder Management &amp; Governance:</strong> Managed structured negotiations and institutional interfaces across complex systems, ensuring disciplined execution within formal public policies.</li>
             </ul>
             <div class="transfer-skills" style="margin-top:8px">
               <span>Regulatory Alignment</span>
@@ -356,6 +376,42 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
         <div class="section-title">Certifications</div>
         <div class="certs-grid">
           <div class="cert-item">
+            <div class="cert-name">Oracle Cloud Infrastructure 2026 Foundations Associate</div>
+            <div class="cert-issuer">Oracle — Jul 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">LangChain: Automating Data Analytics with Agents</div>
+            <div class="cert-issuer">Alura — Jul 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">LangChain: Advanced Techniques for RAG</div>
+            <div class="cert-issuer">Alura — Jul 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">RAG for AI Agents</div>
+            <div class="cert-issuer">Alura — Jul 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">n8n for Developers: Intelligent Workflows</div>
+            <div class="cert-issuer">Alura — Jul 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Flash Skills: Agents with LangGraph</div>
+            <div class="cert-issuer">Alura — Jul 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Gemini and Python: Orchestrating with LangChain</div>
+            <div class="cert-issuer">Alura — Jul 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Python Applied to AI</div>
+            <div class="cert-issuer">Alura — Jul 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Model Context Protocol (MCP)</div>
+            <div class="cert-issuer">Anthropic — Jun 2026</div>
+          </div>
+          <div class="cert-item">
             <div class="cert-name">Claude Subagents</div>
             <div class="cert-issuer">Anthropic — Jun 2026</div>
           </div>
@@ -364,22 +420,23 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
             <div class="cert-issuer">Anthropic — Jun 2026</div>
           </div>
           <div class="cert-item">
+            <div class="cert-name">Building with the Claude API</div>
+            <div class="cert-issuer">Anthropic — May 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">AI Capabilities and Limitations</div>
+            <div class="cert-issuer">Anthropic — May 2026</div>
+          </div>
+          <div class="cert-item">
             <div class="cert-name">Prepare Data for ML APIs on Google Cloud</div>
             <div class="cert-issuer">Google Cloud — Jun 2026</div>
           </div>
           <div class="cert-item">
             <div class="cert-name">Google Cloud Fundamentals: Core Infrastructure</div>
-            <div class="cert-issuer">Google Cloud — Mar 2026</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-name">Building with the Claude API</div>
-            <div class="cert-issuer">Anthropic</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-name">AI Capabilities and Limitations</div>
-            <div class="cert-issuer">Anthropic</div>
+            <div class="cert-issuer">Google Cloud Skills Boost — Mar 2026</div>
           </div>
         </div>
+        <div class="certs-note">In preparation: AIGP — AI Governance Professional (IAPP) · CIPP/E — Certified Information Privacy Professional/Europe (IAPP) · OCI Generative AI Professional (Oracle) · AWS AI Practitioner (Amazon Web Services) · PCAP — Certified Associate Python Programmer (Python Institute) · GH-600 — GitHub Certified: Agentic AI Developer</div>
       </div>
 
       <div class="section">
@@ -389,19 +446,14 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
             <h4>Cloud & Infrastructure</h4>
             <div class="skill-items">
               <span class="highlight">Oracle Cloud (OCI)</span>
-              <span>Cloud Architecture</span>
-              <span>Cloud Migration</span>
-              <span>Cloud Security</span>
-              <span>Cloud Computing IaaS</span>
-              <span>Cloud Infrastructure</span>
-              <span>Cloud Applications</span>
-              <span>DevOps</span>
+              <span class="highlight">Cloud Architecture</span>
               <span>CI/CD</span>
               <span>Docker</span>
-              <span>Terraform</span>
-              <span>Kubernetes</span>
-              <span>Microservices</span>
+              <span>Cloud Security</span>
               <span>REST APIs</span>
+              <span class="basic">Terraform (developing)</span>
+              <span class="basic">Kubernetes (developing)</span>
+              <span class="basic">Microservices (developing)</span>
             </div>
           </div>
           <div class="skill-cat">
@@ -410,17 +462,12 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
               <span class="highlight">Generative AI</span>
               <span class="highlight">Large Language Models</span>
               <span class="highlight">RAG</span>
-              <span>LangChain</span>
-              <span>Agentic AI</span>
-              <span>LLMOps</span>
-              <span>MLOps</span>
+              <span class="highlight">LangChain</span>
+              <span class="highlight">LangGraph</span>
+              <span class="highlight">Agentic AI</span>
               <span>Prompt Engineering</span>
-              <span>Deep Learning</span>
-              <span>NLP</span>
-              <span>Data Science</span>
-              <span>Data Engineering</span>
-              <span>SQL</span>
               <span>Python</span>
+              <span class="basic">SQL (developing)</span>
             </div>
           </div>
           <div class="skill-cat">
@@ -428,27 +475,23 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
             <div class="skill-items">
               <span class="highlight">AI Governance</span>
               <span class="highlight">AI Ethics</span>
-              <span>AI Policy & Regulation</span>
+              <span>AI Policy &amp; Regulation</span>
               <span>IT Governance</span>
-              <span>IT Strategy</span>
-              <span>Digital Transformation</span>
-              <span>Enterprise Architecture</span>
-              <span>Solution Architecture</span>
-              <span>Project Management</span>
               <span>Risk Management</span>
               <span>Regulatory Compliance</span>
+              <span>Project Management</span>
+              <span>Solution Architecture</span>
             </div>
           </div>
           <div class="skill-cat">
             <h4>Business & Strategy</h4>
             <div class="skill-items">
               <span>Business Strategy</span>
-              <span>Strategic Consulting</span>
-              <span>Negotiation</span>
               <span>Stakeholder Management</span>
-              <span>Public Policy</span>
+              <span>Negotiation</span>
               <span>Operations Management</span>
               <span>Contractual Governance</span>
+              <span>Public Policy</span>
             </div>
           </div>
         </div>
@@ -459,24 +502,30 @@ Aqui está o código HTML completo, com 100% das melhorias de texto e estrutura 
         <div class="experience" style="margin-bottom:12px">
           <div class="exp-header">
             <span class="exp-role">Bachelor of Law</span>
-            <span class="exp-date">2021 – 2024</span>
+            <span class="exp-date">In progress</span>
           </div>
-          <div style="font-size:14px;color:#475569">Uniprocessus (9 of 10 semesters completed)</div>
+          <div style="font-size:14px;color:#475569">Uniprocessus — 9 of 10 semesters completed. Foundation for regulatory compliance: LGPD, contracts, due diligence.</div>
         </div>
-        <div class="experience">
+        <div class="experience" style="margin-bottom:12px">
           <div class="exp-header">
-            <span class="exp-role">Legal Operations & Notarial Sciences</span>
+            <span class="exp-role">Legal Operations &amp; Notarial Sciences</span>
             <span class="exp-date">2021 – 2023</span>
           </div>
           <div style="font-size:14px;color:#475569">Centro Universitário Processus</div>
         </div>
+        <div class="experience">
+          <div class="exp-header">
+            <span class="exp-role">Postgraduate Degree in IT Governance</span>
+            <span class="exp-date">In progress</span>
+          </div>
+          <div style="font-size:14px;color:#475569">Governance frameworks (COBIT, ITIL) applied to AI systems and cloud infrastructure.</div>
+        </div>
       </div>
 
       <div style="margin-top:32px;padding-top:16px;border-top:1px solid #e2e8f0;font-size:12px;color:#94a3b8;text-align:center">
-        FABIO EVERTON · linkedin.com/in/fabio-everton · Brasília, DF — Brazil
+        FABIO EVERTON · linkedin.com/in/fabio-everton · github.com/FABIOEVERTON · Brasília, DF — Brazil
       </div>
     </div>
   </div>
 </body>
 </html>
-```
