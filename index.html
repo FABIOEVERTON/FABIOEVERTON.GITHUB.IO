@@ -1,498 +1,812 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FABIO EVERTON — AI Governance Lead & Solutions Architect (OCI)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabio Everton — AI Governance Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ── Reset & base ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0A1628;
+      --deep:    #060E1A;
+      --blue:    #1A3F6F;
+      --steel:   #2A5298;
+      --cyan:    #00C2FF;
+      --cyan-dim:#007EA8;
+      --body:    #CBD8E8;
+      --muted:   #4A6080;
+      --silver:  #7A8FA6;
+      --white:   #F0F4F8;
+      --mist:    #0E1E35;
+      --lgray:   #1C2E45;
+      --mono:    'JetBrains Mono', monospace;
+      --sans:    'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: #f0f2f5;
-      color: #1a1a2e;
-      line-height: 1.6;
+      background: var(--navy);
+      color: var(--body);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
+
+    a { color: var(--cyan); text-decoration: none; transition: color .2s; }
+    a:hover { color: #fff; text-decoration: underline; }
+
+    /* ── Layout ───────────────────────────────────────────────────────────── */
     .page {
-      max-width: 880px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-      overflow: hidden;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
     }
-    .header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+
+    /* ── Header ───────────────────────────────────────────────────────────── */
+    header {
+      background: var(--deep);
+      border-bottom: 2px solid var(--cyan);
+      padding: 52px 24px 44px;
+      margin: 0 -24px 0;
+    }
+
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .name {
+      font-family: var(--mono);
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 700;
       color: #fff;
-      padding: 48px 56px 36px;
-      position: relative;
-    }
-    .header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6);
-    }
-    .header h1 {
-      font-size: 36px;
-      font-weight: 800;
       letter-spacing: -0.5px;
-      margin-bottom: 4px;
+      line-height: 1.1;
     }
-    .header .title {
-      font-size: 18px;
-      font-weight: 500;
-      color: #94a3b8;
-      margin-bottom: 12px;
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 0.85em;
+      background: var(--cyan);
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 1.1s step-end infinite;
     }
-    .header .tagline {
-      font-size: 15px;
-      color: #60a5fa;
-      font-weight: 500;
-      letter-spacing: 0.3px;
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
     }
-    .header .contact {
-      display: flex;
-      gap: 24px;
-      margin-top: 16px;
-      font-size: 13px;
-      color: #cbd5e1;
-      flex-wrap: wrap;
-    }
-    .header .contact span { display: flex; align-items: center; gap: 6px; }
-    .body { padding: 40px 56px; }
-    .section { margin-bottom: 36px; }
-    .section:last-child { margin-bottom: 0; }
-    .section-title {
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #3b82f6;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #e2e8f0;
-    }
-    .narrative {
-      font-size: 15px;
-      color: #334155;
-      line-height: 1.8;
-      background: #f8fafc;
-      border-left: 4px solid #3b82f6;
-      padding: 20px 24px;
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 24px;
-    }
-    .narrative strong { color: #0f172a; }
-    .experience { margin-bottom: 24px; }
-    .experience:last-child { margin-bottom: 0; }
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      margin-bottom: 4px;
-    }
-    .exp-role {
-      font-size: 17px;
-      font-weight: 700;
-      color: #0f172a;
-    }
-    .exp-company {
-      font-size: 15px;
+
+    .title-line {
+      font-family: var(--mono);
+      font-size: clamp(12px, 2vw, 15px);
       font-weight: 600;
-      color: #3b82f6;
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+      margin-top: 14px;
+      margin-bottom: 6px;
     }
-    .exp-date {
+
+    .tag-line {
       font-size: 13px;
-      color: #64748b;
-      font-weight: 500;
+      color: var(--silver);
+      line-height: 1.8;
+      margin-top: 4px;
     }
-    .exp-desc {
-      font-size: 14px;
-      color: #475569;
-      margin-top: 8px;
-      line-height: 1.7;
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--silver);
     }
-    .exp-desc ul {
+
+    .contact-line a { color: var(--silver); }
+    .contact-line a:hover { color: var(--cyan); }
+
+    /* ── Hook bar ─────────────────────────────────────────────────────────── */
+    .hook {
+      background: var(--mist);
+      border-left: 3px solid var(--cyan);
+      padding: 18px 24px;
+      margin: 36px 0;
+      font-family: var(--mono);
+      font-size: clamp(13px, 2vw, 16px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    /* ── Pillars ──────────────────────────────────────────────────────────── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--lgray);
+      border: 1px solid var(--lgray);
+      margin-bottom: 44px;
+    }
+
+    .pillar {
+      background: var(--mist);
+      padding: 20px 18px;
+    }
+
+    .pillar-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .pillar p {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────────── */
+    .section { margin-bottom: 44px; }
+
+    .section-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--cyan);
+      background: var(--blue);
+      padding: 7px 14px;
+      margin-bottom: 22px;
+      display: inline-block;
+    }
+
+    /* ── Profile ──────────────────────────────────────────────────────────── */
+    .profile-text {
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: var(--body);
+      max-width: 780px;
+    }
+
+    .profile-text strong { color: var(--white); }
+
+    /* ── Experience ───────────────────────────────────────────────────────── */
+    .role-block {
+      margin-bottom: 38px;
+      border-left: 2px solid var(--lgray);
+      padding-left: 20px;
+    }
+
+    .role-block:hover { border-left-color: var(--cyan-dim); }
+
+    .role-name {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .role-meta {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-family: var(--mono);
+    }
+
+    .sub-heading {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cyan);
+      margin: 14px 0 8px;
+      font-family: var(--mono);
+    }
+
+    ul.cv-list {
       list-style: none;
       padding: 0;
-      margin-top: 6px;
     }
-    .exp-desc ul li {
-      padding: 3px 0 3px 20px;
+
+    ul.cv-list li {
       position: relative;
+      padding-left: 16px;
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: var(--body);
+      margin-bottom: 7px;
     }
-    .exp-desc ul li::before {
-      content: '→';
+
+    ul.cv-list li::before {
+      content: '›';
       position: absolute;
       left: 0;
-      color: #3b82f6;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    ul.cv-list li strong { color: var(--white); }
+
+    .stack-line {
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: var(--silver);
+      font-family: var(--mono);
+      line-height: 1.8;
+    }
+
+    .stack-line strong { color: var(--body); }
+
+    /* ── Education ────────────────────────────────────────────────────────── */
+    .edu-block {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--lgray);
+    }
+
+    .edu-block:last-child { border-bottom: none; }
+
+    .edu-title {
       font-weight: 600;
+      font-size: 14px;
+      color: var(--white);
+      margin-bottom: 2px;
     }
-    .transfer-skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
+
+    .edu-meta {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-family: var(--mono);
+      margin-bottom: 10px;
     }
-    .transfer-skills span {
-      font-size: 12px;
-      background: #eef2ff;
-      color: #4338ca;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-weight: 500;
-    }
-    .context-label {
+
+    /* ── Certs ────────────────────────────────────────────────────────────── */
+    .cert-label {
       font-size: 12px;
       font-weight: 600;
-      color: #3b82f6;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      color: var(--cyan);
+      font-family: var(--mono);
+      letter-spacing: 0.08em;
+      margin: 18px 0 10px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .cert-card {
+      background: var(--mist);
+      border: 1px solid var(--lgray);
+      padding: 12px 14px;
+    }
+
+    .cert-card.target {
+      border-color: var(--blue);
+      opacity: 0.75;
+    }
+
+    .cert-name {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
       margin-bottom: 4px;
     }
+
+    .cert-card.target .cert-name { color: var(--silver); }
+
+    .cert-sub {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    /* ── Skills ───────────────────────────────────────────────────────────── */
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 24px;
     }
-    .skill-cat h4 {
-      font-size: 13px;
+
+    .skill-cat-title {
+      font-family: var(--mono);
+      font-size: 11px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: #64748b;
-      margin-bottom: 8px;
+      color: var(--cyan);
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
     }
-    .skill-items {
+
+    .skill-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
-    .skill-items span {
-      font-size: 13px;
-      background: #f1f5f9;
-      color: #1e293b;
-      padding: 4px 12px;
-      border-radius: 6px;
-      font-weight: 500;
+
+    .skill-tag {
+      font-size: 12px;
+      color: var(--body);
+      background: var(--lgray);
+      padding: 3px 9px;
+      border-radius: 2px;
+      line-height: 1.6;
     }
-    .skill-items span.highlight {
-      background: #dbeafe;
-      color: #1e40af;
+
+    /* ── GitHub ───────────────────────────────────────────────────────────── */
+    .github-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--body);
+      margin-bottom: 22px;
     }
-    .skill-items span.basic {
-      background: #f1f5f9;
-      color: #94a3b8;
-      font-style: italic;
-    }
-    .certs-grid {
+
+    .github-desc strong { color: var(--white); }
+
+    .repo-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
     }
-    .cert-item {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 12px 16px;
+
+    .repo-card {
+      background: var(--mist);
+      border: 1px solid var(--lgray);
+      border-top: 2px solid var(--blue);
+      padding: 16px 16px 14px;
+      transition: border-top-color .2s;
     }
-    .cert-item .cert-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #0f172a;
+
+    .repo-card:hover { border-top-color: var(--cyan); }
+
+    .repo-name {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 6px;
     }
-    .cert-item .cert-issuer {
+
+    .repo-desc {
+      font-size: 12.5px;
+      color: var(--silver);
+      line-height: 1.6;
+    }
+
+    /* ── Agent note ───────────────────────────────────────────────────────── */
+    .agent-note {
+      background: var(--deep);
+      border: 1px solid var(--lgray);
+      border-left: 3px solid var(--muted);
+      padding: 14px 18px;
       font-size: 12px;
-      color: #64748b;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 44px;
+    }
+
+    .agent-note strong { color: var(--silver); }
+
+    /* ── Footer ───────────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--lgray);
+      margin-top: 60px;
+      padding-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      font-family: var(--mono);
+    }
+
+    /* ── Languages ────────────────────────────────────────────────────────── */
+    .lang-row {
       display: flex;
-      justify-content: space-between;
-      margin-top: 4px;
+      gap: 32px;
+      font-size: 14px;
     }
-    .certs-note {
-      margin-top: 12px;
-      font-size: 12px;
-      color: #64748b;
-      font-style: italic;
-    }
+
+    .lang-item strong { color: var(--white); }
+
+    /* ── Responsive ───────────────────────────────────────────────────────── */
     @media (max-width: 640px) {
-      .header { padding: 32px 24px; }
-      .body { padding: 24px; }
-      .skills-grid, .certs-grid { grid-template-columns: 1fr; }
-      .header h1 { font-size: 28px; }
+      .pillars { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .repo-grid { grid-template-columns: 1fr; }
+      header { padding: 36px 20px 32px; }
     }
+
+    /* ── Print ────────────────────────────────────────────────────────────── */
     @media print {
-      body { background: #fff; }
-      .page { box-shadow: none; margin: 0; border-radius: 0; }
-      .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #fff; color: #111; font-size: 11pt; }
+      header { background: #0A1628; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .cursor { display: none; }
+      a { color: #1A3F6F; }
+      .agent-note { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor { animation: none; opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="header">
-      <h1>FABIO EVERTON</h1>
-      <div class="title">AI Governance Lead &amp; Solutions Architect (OCI); Multi-Agent Orchestration</div>
-      <div class="contact">
-        <span>Brasília, DF — Brazil (Open to Remote / Relocation)</span>
-        <span>linkedin.com/in/fabio-everton</span>
-        <span>github.com/FABIOEVERTON</span>
+
+<!-- ── HEADER ──────────────────────────────────────────────────────────────── -->
+<header>
+  <div class="header-inner">
+    <div class="name">FABIO EVERTON<span class="cursor"></span></div>
+    <div class="title-line">AI GOVERNANCE ARCHITECT · GRC TECH · AGENTIC SYSTEMS · REGULATORY COMPLIANCE</div>
+    <div class="tag-line">
+      NIST AI RMF &nbsp;·&nbsp; EU AI Act &nbsp;·&nbsp; LGPD &nbsp;·&nbsp; ISO 27001/27701 &nbsp;·&nbsp;
+      LangGraph &nbsp;·&nbsp; RAG &nbsp;·&nbsp; OCI &nbsp;·&nbsp; Python &nbsp;·&nbsp; 16 yrs Enterprise
+    </div>
+    <div class="contact-line">
+      <a href="mailto:Fabio_Everton@proton.me">Fabio_Everton@proton.me</a>
+      <a href="https://linkedin.com/in/fabio-everton" target="_blank" rel="noopener">linkedin.com/in/fabio-everton</a>
+      <a href="https://github.com/FABIOEVERTON" target="_blank" rel="noopener">github.com/FABIOEVERTON</a>
+      <span>Brasília, DF — Brazil</span>
+      <span>Remote / Relocation</span>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- ── HOOK ──────────────────────────────────────────────────────────────── -->
+  <div class="hook">
+    Rare intersection: builds AI agents &nbsp;·&nbsp; governs them at runtime &nbsp;·&nbsp; understands the regulation that constrains them
+  </div>
+
+  <!-- ── PILLARS ────────────────────────────────────────────────────────────── -->
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-title">TECHNICAL</div>
+      <p>Builds the systems that need to be governed: agentic pipelines, RAG, HITL controls, immutable audit chains — in production code.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-title">REGULATORY</div>
+      <p>Reads the norm and translates it into operational controls: NIST AI RMF, EU AI Act, LGPD, ISO 27001/27701 — applied, not cited.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-title">OPERATIONAL</div>
+      <p>16 years delivering under pressure: P&L, vendor risk, 60+ complex projects, R$20M+ — governance as a discipline, not a checklist.</p>
+    </div>
+  </div>
+
+  <!-- ── PROFILE ────────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">PROFESSIONAL PROFILE</div>
+    <p class="profile-text">
+      AI Governance Architect with a rare triple foundation: the technical depth to build governed agentic systems from scratch;
+      the regulatory fluency to interpret and operationalise <strong>NIST AI RMF, EU AI Act, LGPD, and ISO 27001/27701</strong>;
+      and <strong>16+ years of enterprise execution</strong> — P&L, contracts, vendor risk, and compliance under pressure across
+      60+ complex projects worth R$20M+.
+      <br><br>
+      Currently completing a <strong>Postgraduate Specialisation in GRC Tech: AI Governance, Security &amp; Compliance</strong>
+      (UnP, 360h, MEC-recognised), covering the four market leadership tracks: AI Governance Lead, GRC Manager,
+      DPO/Privacy, and AI Strategy. Legal foundation (3,200h Law, completed Technologist in Legal &amp; Notarial Sciences)
+      enables direct reading of regulatory instruments — not reliance on interpretations.
+      <br><br>
+      <strong>Governance philosophy:</strong> frameworks define what must be controlled;
+      runtime is where control either exists or does not.
+      All system design reflects this — audit trails, HITL approvals, fail-closed defaults, and observability
+      are built in from the first commit, not retrofitted.
+      <br><br>
+      Fluent English. Open to remote or relocation.
+    </p>
+  </div>
+
+  <!-- ── EXPERIENCE ─────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+
+    <div class="role-block">
+      <div class="role-name">AI Governance Architect &amp; Solutions Architect — Independent</div>
+      <div class="role-meta">Self-employed · Dec 2024 – Present · Brazil, Remote</div>
+
+      <div class="sub-heading">Governed Agentic Systems</div>
+      <ul class="cv-list">
+        <li>Designs and builds multi-agent systems where governance is a <strong>first-class engineering constraint</strong> — not a post-deployment layer. Every agent operates under scoped credentials, rate limits, fail-closed defaults, and mandatory HITL approval for high-risk operations.</li>
+        <li>Implements <strong>immutable audit ledger with SHA-256 chain</strong>, full JSONL observability per query (timestamp, chunks, sources, response, latency, provider, model, fallback, user feedback) and OPA/Rego deterministic policy gates — addressing the gap between what frameworks require on paper and what actually executes at runtime.</li>
+        <li>Production Telegram agent (<strong>parashat_bot</strong>) in active continuous use, integrating 131 indexed sources via NotebookLM for structured weekly study workflows.</li>
+        <li>Full RAG pipeline (<strong>ezra_curator</strong>): ChromaDB vector indexing, 1,500-token chunks, 1,024-dimension embeddings, confidence threshold, reranking, and source-cited answers — targeting the operational problem of reducing information retrieval time across internal document corpora.</li>
+        <li><strong>Ezra Control Plane</strong> in active development: OPA/Rego governance gates designed to limit blast radius of compromised or misbehaving agents.</li>
+      </ul>
+
+      <div class="sub-heading">AI Governance &amp; Regulatory Application</div>
+      <ul class="cv-list">
+        <li>Applies NIST AI RMF, EU AI Act, and LGPD as <strong>operational system constraints</strong> — translating regulatory requirements into audit trails, explainability logging, privacy-by-design architecture, and accountability mechanisms built into the codebase.</li>
+        <li>Published research synthesis of 39 regulatory and scientific sources (NIST, EU AI Act, CAC, Gartner, McKinsey, arXiv, OECD) on the global state of AI governance.</li>
+        <li>Regular thought leadership on LinkedIn: runtime governance for AI agents, MCP security, LGPD compliance in AI systems — 200–300 organic impressions per post.</li>
+        <li>AIGP (IAPP) and CIPP/E target certifications: frameworks actively applied in system design ahead of formal examination.</li>
+      </ul>
+
+      <div class="sub-heading">Engineering Governance &amp; Delivery</div>
+      <ul class="cv-list">
+        <li>CI/CD pipeline with GitHub Actions: lint, type checks, security checks, pytest with <strong>80% coverage gate</strong>, Docker image build and health check — zero-secret policy enforced by pre-commit hooks (AGCP) and CI.</li>
+        <li>Monorepo architecture on OCI A1.Flex with systemd services, docker-compose, and sync pipeline Mac → Drive → GitHub → VM.</li>
+      </ul>
+
+      <div class="stack-line">
+        <strong>Stack:</strong> Python · LangGraph · LangChain · ChromaDB · n8n · Docker · OCI ·
+        Streamlit · GitHub Actions · Pydantic · Ragas · LangSmith · FastAPI · REST APIs
       </div>
     </div>
-    <div class="body">
-      <!-- SECTION: PROFILE -->
-      <div class="section">
-        <div class="section-title">Profile</div>
-        <div class="narrative">
-          Senior professional transitioning 16+ years of business execution — P&amp;L, contracts, risk, governance, and compliance — into Cloud Architecture (OCI) and AI Systems Governance.<br><br>
-          Currently advancing through the Oracle ONE 2026 program and the OCI certification track, with a focus on building governed, multi-agent orchestration systems. Using n8n, LangChain, RAG, and LangGraph on OCI, I develop automated workflows that integrate enterprise tools to solve operational bottlenecks — with code that is public and verifiable on GitHub.<br><br>
-          I translate my foundational experience — delivering 60+ large-scale corporate projects from bare shell to full operation — into cloud-native architectures and AI governance frameworks: systems that are secure, auditable, and aligned with business goals.
+
+    <div class="role-block">
+      <div class="role-name">Founder &amp; Director of Operations</div>
+      <div class="role-meta">Agregata Engenharia e Construção · Full-time · Jan 2010 – Dec 2024 · 15 yrs · Brazil</div>
+      <ul class="cv-list">
+        <li>Delivered <strong>R$20M+</strong> across 60+ turn-key corporate projects — data centres for banks, law firms, and technology companies; 100+ residential units — managing full lifecycle from planning to fully operational facilities.</li>
+        <li>Built and coordinated multidisciplinary teams of <strong>50+ professionals</strong> across 8 disciplines (civil, electrical, IT, HVAC, security) with strict alignment to aggressive deadlines.</li>
+        <li>P&L ownership, procurement, and high-stakes vendor negotiations across simultaneous projects. Managed multi-vendor dependency chains with <strong>zero unnecessary contract add-ons</strong> — client margin protected in every engagement.</li>
+        <li>Specialty: real-time value engineering under incomplete specifications — delivering technical solutions within scope, cost, and deadline when original plans were insufficient.</li>
+        <li>6 high-complexity projects (R$2M+) with complete mission-critical data centres: precision cooling (CRAC/CRAH), double-conversion UPS, clean-agent fire suppression, hot/cold aisle containment, DCIM monitoring.</li>
+        <li><strong>Direct translation to AI Governance:</strong> risk management in high-complexity, multi-stakeholder environments; delivery compliance under pressure; orchestrating conflicting interests toward a controlled outcome — now applied to NIST AI RMF and EU AI Act at digital scale.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-name">Bank Operations Clerk</div>
+      <div class="role-meta">Banco do Brasil · Jan 2007 – Dec 2007 · Brazil</div>
+      <ul class="cv-list">
+        <li>Selected via national competitive public examination (concurso público) for a regulated federal financial institution.</li>
+        <li>Back-office compliance: operational workflows tied to regulatory alignment, record keeping, structured data handling, and internal controls in a high-confidentiality environment.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-name">Government Relations &amp; Regulatory Coordination</div>
+      <div class="role-meta">MERCOPLAN · Full-time · Jan 2004 – Dec 2006 · 3 yrs · Brazil</div>
+      <ul class="cv-list">
+        <li>Coordinated institutional interactions between municipal agencies and federal ministries within formal governance frameworks and public policy processes.</li>
+        <li>Regulatory interpretation and compliance: aligned complex project requirements with multi-level public administration constraints and federal regulations.</li>
+        <li>Stakeholder management across government, contractors, and institutional interfaces — disciplined execution within formal public policy frameworks.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── EDUCATION ──────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">EDUCATION</div>
+
+    <div class="edu-block">
+      <div class="edu-title">Postgraduate Specialisation (Lato Sensu) — GRC Tech: AI Governance, Security &amp; Compliance</div>
+      <div class="edu-meta">Universidade Potiguar (UnP) · Ânima Educação · Aug 2026 – Aug 2027 · 360h · MEC-recognised</div>
+      <ul class="cv-list">
+        <li><strong>Algorithmic Governance</strong> — lifecycle accountability, audit, bias mitigation, LGPD/EU AI Act compliance; traceability of automated decisions.</li>
+        <li><strong>AI &amp; Data Governance, Regulation &amp; Ethics</strong> — NIST AI RMF, transparency, explainability, privacy by design, accountability.</li>
+        <li><strong>Digital Law &amp; Data Protection</strong> — LGPD, Marco Civil, ISO 27001/27701, civil liability in AI, startup regulation.</li>
+        <li><strong>Audit, Risk &amp; Pentest in InfoSec</strong> — audit methodologies, risk analysis, penetration testing, IDS, continuous monitoring.</li>
+        <li><strong>Applied Cryptography &amp; Secure Communications</strong> — AES, RSA, ECC, TLS, quantum-safe cryptography, business continuity.</li>
+        <li><strong>Big Data Analytics</strong> — Hadoop, Data Lake, SQL/NoSQL, distributed computing, data governance.</li>
+        <li><strong>Generative AI for Decision &amp; Management</strong> — prompt engineering, agents, AI-driven workflows, risk assessment.</li>
+        <li><strong>AI Strategies for Business</strong> — opportunity identification, adoption, scaling, organisational culture.</li>
+        <li>Modular model: individual certificate issued per discipline completed, allowing immediate portfolio update before full programme conclusion.</li>
+      </ul>
+    </div>
+
+    <div class="edu-block">
+      <div class="edu-title">Bachelor of Laws — 9 of 10 semesters completed (3,200+ hours)</div>
+      <div class="edu-meta">UniProcessus (Centro Universitário Processus) · Jan 2021 – Dec 2024</div>
+      <ul class="cv-list">
+        <li>Deep legal foundation: Digital Law, Human Rights, Consumer Protection, International Law, Ethics, Contracts, Regulatory Frameworks, Data Protection, and Corporate Legal Operations.</li>
+        <li>Enables direct reading and interpretation of regulatory instruments — LGPD, EU AI Act, Marco Civil, ISO standards — without reliance on third-party summaries.</li>
+      </ul>
+    </div>
+
+    <div class="edu-block">
+      <div class="edu-title">Technologist Degree — Legal Operations &amp; Notarial Sciences (Completed)</div>
+      <div class="edu-meta">Centro Universitário Processus (UniProcessus) · Jan 2021 – Dec 2023</div>
+      <ul class="cv-list">
+        <li>Operational understanding of corporate governance, legal risk management, information governance, Cyber Law, Corporate Law, and dispute resolution.</li>
+        <li>Foundation for DPO, compliance, and regulatory advisory roles.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── CERTIFICATIONS ─────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">CERTIFICATIONS — ACTIVE &amp; ROADMAP</div>
+
+    <div class="cert-label">COMPLETED</div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-name">AI Engineering: Agents, RAG &amp; Orchestration</div>
+        <div class="cert-sub">Alura · Jun 2026</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Oracle Cloud Infrastructure 2026 Foundations Associate</div>
+        <div class="cert-sub">Oracle · Jul 2026</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Model Context Protocol (MCP)</div>
+        <div class="cert-sub">Anthropic · Jun 2026 · ID: 86gqn992stp9</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Claude Subagents</div>
+        <div class="cert-sub">Anthropic · Jun 2026 · ID: ssv5w2kkeswi</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Building with the Claude API</div>
+        <div class="cert-sub">Anthropic · May 2026 · ID: txhnot8yv2ob</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Prepare Data for ML APIs on Google Cloud</div>
+        <div class="cert-sub">Google · Jun 2026</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Google Cloud Fundamentals: Core Infrastructure</div>
+        <div class="cert-sub">Google Cloud Skills Boost · Mar 2026</div>
+      </div>
+    </div>
+
+    <div class="cert-label" style="margin-top:20px;">IN PROGRESS / TARGET — 6-MONTH ROADMAP</div>
+    <div class="cert-grid">
+      <div class="cert-card target"><div class="cert-name">AIGP — AI Governance Professional</div><div class="cert-sub">IAPP · Target · 6 months</div></div>
+      <div class="cert-card target"><div class="cert-name">CIPP/E — Certified Info. Privacy Professional/Europe</div><div class="cert-sub">IAPP · Target · 6 months</div></div>
+      <div class="cert-card target"><div class="cert-name">OCI AI Professional</div><div class="cert-sub">Oracle · Target · 6 months</div></div>
+      <div class="cert-card target"><div class="cert-name">OCI Architect Professional (Multicloud)</div><div class="cert-sub">Oracle · Target · 6 months</div></div>
+      <div class="cert-card target"><div class="cert-name">PCAP — Associate Python Programmer</div><div class="cert-sub">Python Institute · Target</div></div>
+      <div class="cert-card target"><div class="cert-name">PCPP1 — Professional Python Programmer L1</div><div class="cert-sub">Python Institute · Target</div></div>
+      <div class="cert-card target"><div class="cert-name">PCEI — Entry-Level AI Specialist with Python</div><div class="cert-sub">Python Institute · Target</div></div>
+      <div class="cert-card target"><div class="cert-name">PCAI — Associate AI Specialist with Python</div><div class="cert-sub">Python Institute · Target</div></div>
+      <div class="cert-card target"><div class="cert-name">PCAD — Associate Data Analyst with Python</div><div class="cert-sub">Python Institute · Target</div></div>
+      <div class="cert-card target"><div class="cert-name">PCES — Entry-Level Security Specialist</div><div class="cert-sub">Python Institute · Target</div></div>
+      <div class="cert-card target"><div class="cert-name">PCPP2 — Professional Python Programmer L2</div><div class="cert-sub">Python Institute · Target</div></div>
+      <div class="cert-card target"><div class="cert-name">GitHub Agents</div><div class="cert-sub">GitHub · Target</div></div>
+      <div class="cert-card target"><div class="cert-name">Kubernetes (CKA or equivalent)</div><div class="cert-sub">CNCF · Target</div></div>
+      <div class="cert-card target"><div class="cert-name">AWS Cloud Practitioner / Associate</div><div class="cert-sub">Amazon · Target</div></div>
+    </div>
+  </div>
+
+  <!-- ── SKILLS ─────────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">SKILLS</div>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-cat-title">AI GOVERNANCE &amp; GRC</div>
+        <div class="skill-tags">
+          <span class="skill-tag">NIST AI RMF</span>
+          <span class="skill-tag">EU AI Act</span>
+          <span class="skill-tag">LGPD</span>
+          <span class="skill-tag">ISO 27001</span>
+          <span class="skill-tag">ISO 27701</span>
+          <span class="skill-tag">Algorithmic Governance</span>
+          <span class="skill-tag">Audit Trail Design</span>
+          <span class="skill-tag">HITL Controls</span>
+          <span class="skill-tag">OPA/Rego</span>
+          <span class="skill-tag">Privacy by Design</span>
+          <span class="skill-tag">Risk Management</span>
+          <span class="skill-tag">AI Ethics</span>
         </div>
       </div>
-
-      <!-- SECTION: CAREER TRAJECTORY -->
-      <div class="section">
-        <div class="section-title">Career Trajectory</div>
-        
-        <div class="experience">
-          <div class="exp-header">
-            <div>
-              <span class="exp-role">AI Governance &amp; Solutions Architect</span>
-              <span class="exp-company"> — Independent</span>
-            </div>
-            <div class="exp-date">Dec 2024 – Present</div>
-          </div>
-          <div class="context-label">Bridging Complex Project Delivery with Cloud Architecture &amp; AI Systems Governance</div>
-          <div class="exp-desc">
-            Applying enterprise-grade operational controls to digital workflows and autonomous AI agents.
-            <ul>
-              <li><strong>Multi-Agent Orchestration:</strong> Designing governed workflows with n8n, LangChain, and LangGraph on OCI, integrating enterprise tools with predictable execution. Verifiable through GitHub: 9 public projects, including production Telegram agents, RAG with ChromaDB, Docker, and CI/CD.</li>
-              <li><strong>AI Governance &amp; Compliance:</strong> AIGP candidate (IAPP), CIPP/E in progress; applying NIST AI RMF, EU AI Act, and LGPD to secure AI deployments.</li>
-              <li><strong>Operational Transformation:</strong> Translating physical-infrastructure risk management and quality control into cloud-native system design.</li>
-            </ul>
-          </div>
-          <div class="transfer-skills">
-            <span>AI Governance</span>
-            <span>Cloud Architecture (OCI)</span>
-            <span>RAG Systems</span>
-            <span>Multi-Agent Orchestration</span>
-            <span>n8n</span>
-            <span>LangChain</span>
-            <span>Technical Program Management</span>
-          </div>
-        </div>
-
-        <div class="experience">
-          <div class="exp-header">
-            <div>
-              <span class="exp-role">Founder &amp; Director of Operations</span>
-              <span class="exp-company"> — Agregata Engenharia e Construção</span>
-            </div>
-            <div class="exp-date">Jan 2010 – Dec 2024 · 15 yrs</div>
-          </div>
-          <div class="context-label">Infrastructure &amp; Project Delivery</div>
-          <div class="exp-desc">
-            Led end-to-end delivery of 60+ turnkey corporate projects and 100+ residential units, managing the entire lifecycle from planning to fully operational facilities. Served as the primary point of accountability for scope, schedule, budget, and regulatory compliance.
-            <ul>
-              <li><strong>Project &amp; Operations Management:</strong> Coordinated multidisciplinary teams, contractors, and suppliers across simultaneous projects, ensuring strict alignment with aggressive delivery timelines.</li>
-              <li><strong>Financial &amp; Risk Governance:</strong> Managed P&amp;L, procurement, and high-stakes vendor negotiations. Implemented risk mitigation strategies to resolve critical bottlenecks in real time.</li>
-              <li><strong>Complex Infrastructure Integration:</strong> Directed the deployment of mission-critical infrastructure, including IT structured cabling and integrated electrical systems, ensuring technical readiness and compliance.</li>
-            </ul>
-          </div>
-          <div class="transfer-skills">
-            <span>Project Operations</span>
-            <span>Full-Cycle Delivery</span>
-            <span>Risk Management</span>
-            <span>Vendor Coordination</span>
-            <span>P&amp;L Ownership</span>
-            <span>Compliance</span>
-            <span>Multi-Team Orchestration</span>
-          </div>
-        </div>
-
-        <div class="experience">
-          <div class="exp-header">
-            <div>
-              <span class="exp-role">Banking Operations &amp; Compliance</span>
-              <span class="exp-company"> — Banco do Brasil</span>
-            </div>
-            <div class="exp-date">Jan 2007 – Dec 2007 · 1 yr</div>
-          </div>
-          <div class="exp-desc">
-            Operated in a high-control banking back-office environment focused on operational accuracy, data integrity, and compliance across critical financial processes.
-            <ul>
-              <li><strong>Regulatory Compliance:</strong> Executed standardized operational workflows for credit operations and contractual records, ensuring strict adherence to internal banking standards and federal frameworks.</li>
-              <li><strong>Data Integrity &amp; Risk Control:</strong> Maintained corporate data within core banking systems, handling structured data validation in a high-confidentiality, risk-aware environment.</li>
-            </ul>
-            <div class="transfer-skills" style="margin-top:8px">
-              <span>Data Integrity</span>
-              <span>Operational Compliance</span>
-              <span>Process Control</span>
-              <span>Audit Principles</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="experience">
-          <div class="exp-header">
-            <div>
-              <span class="exp-role">Government Relations &amp; Regulatory Coordination</span>
-              <span class="exp-company"> — MERCOPLAN</span>
-            </div>
-            <div class="exp-date">Jan 2004 – Dec 2006 · 3 yrs</div>
-          </div>
-          <div class="exp-desc">
-            Operated in structured government-facing environments, coordinating interactions between municipal agencies and federal ministries. Focused on regulatory alignment and project approval processes within formal institutional frameworks.
-            <ul>
-              <li><strong>Regulatory Interpretation &amp; Compliance:</strong> Ensured complex project requirements were aligned with governmental constraints, federal regulations, and multi-level public administration procedures.</li>
-              <li><strong>Stakeholder Management &amp; Governance:</strong> Managed structured negotiations and institutional interfaces across complex systems, ensuring disciplined execution within formal public policies.</li>
-            </ul>
-            <div class="transfer-skills" style="margin-top:8px">
-              <span>Regulatory Alignment</span>
-              <span>Stakeholder Management</span>
-              <span>Public Policy</span>
-              <span>Institutional Operations</span>
-            </div>
-          </div>
+      <div>
+        <div class="skill-cat-title">AGENTIC ENGINEERING</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">LangGraph</span>
+          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">ChromaDB</span>
+          <span class="skill-tag">RAG</span>
+          <span class="skill-tag">n8n</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">OCI</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Pydantic</span>
+          <span class="skill-tag">LangSmith</span>
+          <span class="skill-tag">Ragas</span>
+          <span class="skill-tag">Streamlit</span>
         </div>
       </div>
-
-      <!-- SECTION: EDUCATION -->
-      <div class="section">
-        <div class="section-title">Education</div>
-        
-        <div class="experience" style="margin-bottom:16px">
-          <div class="exp-header">
-            <span class="exp-role">Postgraduate Specialization (Lato Sensu) in GRC Tech: AI Governance, Security &amp; Compliance</span>
-            <span class="exp-date">Aug 2026 – Aug 2027</span>
-          </div>
-          <div class="exp-company" style="margin-bottom:4px">Universidade Potiguar (UnP)</div>
-          <div style="font-size:14px;color:#475569">360h MEC-recognized postgraduate specialization focused on AI Governance, Security, Compliance, and digital regulation. Key modules include Algorithmic Governance; AI &amp; Data Governance, Regulation &amp; Ethics; NIST AI RMF; EU AI Act; Digital Law &amp; Data Protection; LGPD; ISO 27001/27701; Audit, Risk &amp; Pentest in Information Security; Applied Cryptography; Big Data Analytics; Generative AI for Decision &amp; Management; and AI Strategies for Business.</div>
-        </div>
-
-        <div class="experience" style="margin-bottom:16px">
-          <div class="exp-header">
-            <span class="exp-role">Bachelor of Law</span>
-            <span class="exp-date">Jan 2021 – Dec 2024</span>
-          </div>
-          <div class="exp-company" style="margin-bottom:4px">UniProcessus</div>
-          <div style="font-size:14px;color:#475569">Legal education focused on Digital Law, Contracts, Compliance, Ethics, Regulatory Frameworks, Data Protection, and Corporate Legal Operations. Nine of ten semesters completed, providing a legal foundation applied to AI governance, regulatory compliance, contracts, risk management, and technology governance.</div>
-        </div>
-
-        <div class="experience">
-          <div class="exp-header">
-            <span class="exp-role">Degree in Legal Operations &amp; Notarial Sciences</span>
-            <span class="exp-date">Jan 2021 – Dec 2023</span>
-          </div>
-          <div class="exp-company" style="margin-bottom:4px">Centro Universitário Processus (UniProcessus)</div>
-          <div style="font-size:14px;color:#475569">Completed degree focused on Legal Operations, Notarial Sciences, Cyber Law, Corporate Law, Information Governance, regulatory processes, and legal documentation.</div>
+      <div>
+        <div class="skill-cat-title">LEGAL &amp; REGULATORY</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Digital Law</span>
+          <span class="skill-tag">LGPD</span>
+          <span class="skill-tag">Marco Civil</span>
+          <span class="skill-tag">Corporate Law</span>
+          <span class="skill-tag">Contracts</span>
+          <span class="skill-tag">Cyber Law</span>
+          <span class="skill-tag">Notarial Sciences</span>
+          <span class="skill-tag">Regulatory Interpretation</span>
+          <span class="skill-tag">Public Policy</span>
+          <span class="skill-tag">Legal Operations</span>
         </div>
       </div>
-
-      <!-- SECTION: CERTIFICATIONS -->
-      <div class="section">
-        <div class="section-title">Certifications</div>
-        <div class="certs-grid">
-          <div class="cert-item">
-            <div class="cert-name">AI Engineering: Agents, RAG &amp; Orchestration</div>
-            <div class="cert-issuer">Alura — Jun 2026</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-name">Oracle Cloud Infrastructure 2026 Foundations Associate</div>
-            <div class="cert-issuer">Oracle — Jul 2026</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-name">Model Context Protocol (MCP)</div>
-            <div class="cert-issuer">Anthropic — Jun 2026</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-name">Claude Subagents</div>
-            <div class="cert-issuer">Anthropic — Jun 2026</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-name">Prepare Data for ML APIs on Google Cloud</div>
-            <div class="cert-issuer">Google Cloud — Jun 2026</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-name">Building with the Claude API</div>
-            <div class="cert-issuer">Anthropic — May 2026</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-name">Google Cloud Fundamentals: Core Infrastructure</div>
-            <div class="cert-issuer">Google Cloud Skills Boost — Mar 2026</div>
-          </div>
+      <div>
+        <div class="skill-cat-title">BUSINESS &amp; OPERATIONS</div>
+        <div class="skill-tags">
+          <span class="skill-tag">P&L Ownership</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Negotiation</span>
+          <span class="skill-tag">Project Management</span>
+          <span class="skill-tag">Value Engineering</span>
+          <span class="skill-tag">Vendor Risk</span>
+          <span class="skill-tag">Strategic Planning</span>
+          <span class="skill-tag">Contractual Governance</span>
         </div>
-        <div class="certs-note">In preparation / Target: AIGP — AI Governance Professional (IAPP) · CIPP/E — Certified Information Privacy Professional/Europe (IAPP) · OCI Generative AI Professional (Oracle)</div>
-      </div>
-
-      <!-- SECTION: SKILLS -->
-      <div class="section">
-        <div class="section-title">Skills</div>
-        <div class="skills-grid">
-          <div class="skill-cat">
-            <h4>Cloud &amp; Infrastructure</h4>
-            <div class="skill-items">
-              <span class="highlight">Oracle Cloud (OCI)</span>
-              <span class="highlight">Cloud Architecture</span>
-              <span>CI/CD</span>
-              <span>Docker</span>
-              <span>Cloud Security</span>
-              <span>REST APIs</span>
-              <span class="basic">Terraform (developing)</span>
-              <span class="basic">Kubernetes (developing)</span>
-              <span class="basic">Microservices (developing)</span>
-            </div>
-          </div>
-          <div class="skill-cat">
-            <h4>AI &amp; Data</h4>
-            <div class="skill-items">
-              <span class="highlight">Generative AI</span>
-              <span class="highlight">Large Language Models</span>
-              <span class="highlight">RAG</span>
-              <span class="highlight">LangChain</span>
-              <span class="highlight">LangGraph</span>
-              <span class="highlight">Agentic AI</span>
-              <span>Prompt Engineering</span>
-              <span>Python</span>
-              <span class="basic">SQL (developing)</span>
-            </div>
-          </div>
-          <div class="skill-cat">
-            <h4>Governance &amp; Operations</h4>
-            <div class="skill-items">
-              <span class="highlight">AI Governance</span>
-              <span class="highlight">AI Ethics</span>
-              <span>AI Policy &amp; Regulation</span>
-              <span>IT Governance</span>
-              <span>Risk Management</span>
-              <span>Regulatory Compliance</span>
-              <span>Project Management</span>
-              <span>Solution Architecture</span>
-            </div>
-          </div>
-          <div class="skill-cat">
-            <h4>Business &amp; Strategy</h4>
-            <div class="skill-items">
-              <span>Business Strategy</span>
-              <span>Stakeholder Management</span>
-              <span>Negotiation</span>
-              <span>Operations Management</span>
-              <span>Contractual Governance</span>
-              <span>Public Policy</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top:32px;padding-top:16px;border-top:1px solid #e2e8f0;font-size:12px;color:#94a3b8;text-align:center">
-        FABIO EVERTON · linkedin.com/in/fabio-everton · github.com/FABIOEVERTON · Brasília, DF — Brazil
       </div>
     </div>
   </div>
+
+  <!-- ── GITHUB ─────────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">GITHUB — <a href="https://github.com/FABIOEVERTON" target="_blank" rel="noopener">github.com/FABIOEVERTON</a></div>
+    <p class="github-desc">
+      All engineering work is public and verifiable. The repository covers three interconnected areas:
+      <strong>(1) governed agentic systems</strong> — production agents with runtime controls, HITL, immutable audit chains, and fail-closed architecture;
+      <strong>(2) RAG and knowledge retrieval</strong> — full vector-indexed pipelines with observability, confidence thresholds, source citation, and evaluation sets;
+      <strong>(3) governance infrastructure</strong> — CI/CD with security gates, zero-secret enforcement, Docker, OCI deployment, and the Ezra Control Plane (in development) for agent blast-radius containment.
+      As new systems are built, they fall into one of these three areas — the architecture, not the list, is what matters.
+    </p>
+
+    <div class="repo-grid">
+      <a href="https://github.com/FABIOEVERTON/BRACHAT-MAIN" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">BRACHAT-MAIN</div>
+        <div class="repo-desc">Core technical monorepo. Production agents, RAG pipeline, multi-agent orchestration, HITL controls, CI/CD, Docker, OCI deployment and governance infrastructure.</div>
+      </a>
+      <a href="https://github.com/FABIOEVERTON/FABIOEVERTON.GITHUB.IO" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">FABIOEVERTON.GITHUB.IO</div>
+        <div class="repo-desc">Personal portfolio and CV site. Live at fabioeverton.github.io — static, print-optimised, deployed via GitHub Pages.</div>
+      </a>
+      <a href="https://github.com/FABIOEVERTON/EZRA_AI_GOVERNANCE_FRAMEWORK" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">EZRA_AI_GOVERNANCE_FRAMEWORK</div>
+        <div class="repo-desc">Standalone documentation repository for the Ezra governance framework. Content in active development.</div>
+      </a>
+      <a href="https://github.com/FABIOEVERTON" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">→ VIEW ALL REPOSITORIES</div>
+        <div class="repo-desc">Full profile and all public repositories on GitHub.</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── LANGUAGES ─────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">LANGUAGES</div>
+    <div class="lang-row">
+      <div class="lang-item"><strong>Portuguese</strong> — Native / Bilingual</div>
+      <div class="lang-item"><strong>English</strong> — Professional Working Proficiency (Fluent)</div>
+    </div>
+  </div>
+
+  <!-- ── AGENT NOTE ─────────────────────────────────────────────────────────── -->
+  <div class="agent-note">
+    <strong>AGENT ADAPTATION NOTE</strong> — This is a master CV. All content is intentional and complete.
+    To adapt for a specific role: identify the primary axis (AI Governance / GRC / DPO-Privacy /
+    Legal-Regulatory / Business Strategy / Public Policy / Parliamentary Advisory), reorder sections
+    to surface the most relevant pillar first, compress or remove bullets from non-relevant domains,
+    and adjust the profile opening sentence to mirror the job description language.
+    Do not invent experience. Do not remove certifications. Do not alter the GitHub section content.
+  </div>
+
+</div><!-- /page -->
+
+<!-- ── FOOTER ────────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="page" style="padding-bottom:24px;">
+    FABIO EVERTON &nbsp;·&nbsp;
+    <a href="mailto:Fabio_Everton@proton.me">Fabio_Everton@proton.me</a> &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/fabio-everton" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp;
+    <a href="https://github.com/FABIOEVERTON" target="_blank" rel="noopener">GitHub</a> &nbsp;·&nbsp;
+    Brasília, DF — Brazil
+  </div>
+</footer>
+
 </body>
 </html>
