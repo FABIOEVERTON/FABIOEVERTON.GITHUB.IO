@@ -3,6 +3,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fabio-everton/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FABIOEVERTON)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5561984076881)
+[![Email](https://img.shields.io/badge/Email-Fabio_Everton@proton.me-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:Fabio_Everton@proton.me)
 
 > **"If it cannot be audited, it cannot be deployed."**  
 > *— The principle that bridges construction engineering, financial compliance, and AI governance.*
