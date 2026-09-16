@@ -1,9 +1,8 @@
 # 👨‍💻 Fabio Everton — AI Governance Engineer
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fabio-everton-3b62b1129/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fabio-everton/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FABIOEVERTON)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5561998407681)
-[![Email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:fabioeverton@example.com)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5561984076881)
 
 > **"If it cannot be audited, it cannot be deployed."**  
 > *— The principle that bridges construction engineering, financial compliance, and AI governance.*
@@ -109,9 +108,9 @@ You can view the live resume page by opening `index.html` in any browser, or [vi
 
 ## 📫 Connect With Me
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/fabio-everton-3b62b1129/) — Professional network & recommendations
+- 💼 [LinkedIn](https://www.linkedin.com/in/fabio-everton/) — Professional network & recommendations
 - 🐙 [GitHub](https://github.com/FABIOEVERTON) — Code, projects & daily learning commits
-- 📱 [WhatsApp](https://wa.me/5561998407681) — Direct conversation (+55 61 99840-7681)
+- 📱 [WhatsApp](https://wa.me/5561984076881) — Direct conversation (+55 61 98407-6881)
 - 📍 Brasília, DF — Brazil (Open to remote)
 
 ---
